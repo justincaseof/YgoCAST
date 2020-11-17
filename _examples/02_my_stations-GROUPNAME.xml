@@ -7,7 +7,7 @@
         <StationName>Joint Radio</StationName>
         <StationUrl>http://radio.jointil.net:9998</StationUrl>
         <StationDesc>Chillout</StationDesc>
-        <Logo>http://116.203.157.148/ycast/icon?id=MY_9C6E53A6C589</Logo>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_9C6E53A6C589</Logo>
         <StationFormat>Chillout</StationFormat>
         <StationLocation />
         <StationBandWidth />
@@ -21,7 +21,7 @@
         <StationName>SomaFM DEF CON Radio</StationName>
         <StationUrl>http://ice1.somafm.com/defcon-256-mp3</StationUrl>
         <StationDesc>Chillout</StationDesc>
-        <Logo>http://116.203.157.148/ycast/icon?id=MY_D21037E64327</Logo>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_D21037E64327</Logo>
         <StationFormat>Chillout</StationFormat>
         <StationLocation />
         <StationBandWidth />
@@ -35,7 +35,7 @@
         <StationName>SomaFM Drone Zone</StationName>
         <StationUrl>http://ice1.somafm.com/dronezone-256-mp3</StationUrl>
         <StationDesc>Chillout</StationDesc>
-        <Logo>http://116.203.157.148/ycast/icon?id=MY_B08E60982371</Logo>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_B08E60982371</Logo>
         <StationFormat>Chillout</StationFormat>
         <StationLocation />
         <StationBandWidth />
@@ -49,7 +49,7 @@
         <StationName>SomaFM Mission Control</StationName>
         <StationUrl>http://ice1.somafm.com/missioncontrol-128-mp3</StationUrl>
         <StationDesc>Chillout</StationDesc>
-        <Logo>http://116.203.157.148/ycast/icon?id=MY_BA37C1F160A8</Logo>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_BA37C1F160A8</Logo>
         <StationFormat>Chillout</StationFormat>
         <StationLocation />
         <StationBandWidth />
@@ -63,7 +63,7 @@
         <StationName>The Jazz Groove</StationName>
         <StationUrl>http://west-mp3-128.streamthejazzgroove.com</StationUrl>
         <StationDesc>Chillout</StationDesc>
-        <Logo>http://116.203.157.148/ycast/icon?id=MY_4CF0F0E114E6</Logo>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_4CF0F0E114E6</Logo>
         <StationFormat>Chillout</StationFormat>
         <StationLocation />
         <StationBandWidth />
@@ -77,7 +77,7 @@
         <StationName>Radionomy Downbeat</StationName>
         <StationUrl>http://streaming.radionomy.com/TempoOfTheDownbeat1</StationUrl>
         <StationDesc>Chillout</StationDesc>
-        <Logo>http://116.203.157.148/ycast/icon?id=MY_286F2E84CF9C</Logo>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_286F2E84CF9C</Logo>
         <StationFormat>Chillout</StationFormat>
         <StationLocation />
         <StationBandWidth />

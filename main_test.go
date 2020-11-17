@@ -17,3 +17,7 @@ func TestParseSuccessOfMyStations(t *testing.T) {
 func TestParseSuccessOfSubdirXYZ(t *testing.T) {
 	fmt.Println(helper.ParseFile("_examples/02_my_stations-GROUPNAME.xml"))
 }
+
+func TestRootHandler(t *testing.T) {
+
+}
