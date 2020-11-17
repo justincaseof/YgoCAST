@@ -13,23 +13,23 @@ type Item struct {
 	ItemType string   `xml:"ItemType"`
 
 	// ItemType="Dir"
-	Title        string `xml:"Title"`
-	UrlDir       string `xml:"UrlDir"`
-	UrlDirBackUp string `xml:"UrlDirBackUp"`
-	DirCount     int32  `xml:"DirCount"`
+	Title        string `xml:"Title,omitempty"`
+	UrlDir       string `xml:"UrlDir,omitempty"`
+	UrlDirBackUp string `xml:"UrlDirBackUp,omitempty"`
+	DirCount     int32  `xml:"DirCount,omitempty"`
 
 	// ItemType="Station"
-	StationId        string `xml:"StationId"`
-	StationName      string `xml:"StationName"`
-	StationUrl       string `xml:"StationUrl"`
-	StationDesc      string `xml:"StationDesc"`
-	Logo             string `xml:"Logo"`
-	StationFormat    string `xml:"StationFormat"`
-	StationLocation  string `xml:"StationLocation"`
-	StationBandWidth string `xml:"StationBandWidth"`
-	StationMime      string `xml:"StationMime"`
-	Relia            string `xml:"Relia"`
-	Bookmark         string `xml:"Bookmark"`
+	StationId        string `xml:"StationId,omitempty"`
+	StationName      string `xml:"StationName,omitempty"`
+	StationUrl       string `xml:"StationUrl,omitempty"`
+	StationDesc      string `xml:"StationDesc,omitempty"`
+	Logo             string `xml:"Logo,omitempty"`
+	StationFormat    string `xml:"StationFormat,omitempty"`
+	StationLocation  string `xml:"StationLocation,omitempty"`
+	StationBandWidth string `xml:"StationBandWidth,omitempty"`
+	StationMime      string `xml:"StationMime,omitempty"`
+	Relia            string `xml:"Relia,omitempty"`
+	Bookmark         string `xml:"Bookmark,omitempty"`
 }
 
 // ###
