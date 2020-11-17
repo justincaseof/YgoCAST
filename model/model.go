@@ -16,7 +16,7 @@ type Item struct {
 	Title        string `xml:"Title"`
 	UrlDir       string `xml:"UrlDir"`
 	UrlDirBackUp string `xml:"UrlDirBackUp"`
-	DirCount     string `xml:"DirCount"`
+	DirCount     int32  `xml:"DirCount"`
 
 	// ItemType="Station"
 	StationId        string `xml:"StationId"`
@@ -31,3 +31,27 @@ type Item struct {
 	Relia            string `xml:"Relia"`
 	Bookmark         string `xml:"Bookmark"`
 }
+
+// ###
+
+var Root ListOfItems = ListOfItems{
+	ItemCount: -1, // looks like to be some kind of default for root folder
+	Items: []Item{
+		Item{
+			ItemType:     "Dir",
+			Title:        "Radiobrowser",
+			UrlDir:       "http:// TODO",
+			UrlDirBackUp: "http:// TODO",
+			DirCount:     4,
+		},
+		Item{
+			ItemType:     "Dir",
+			Title:        "My Stations",
+			UrlDir:       "http:// TODO",
+			UrlDirBackUp: "http:// TODO",
+			DirCount:     4,
+		},
+	},
+}
+var MyStations ListOfItems
+var Chill ListOfItems
