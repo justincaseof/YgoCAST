@@ -8,7 +8,7 @@ import (
 )
 
 func RootHandler(writer http.ResponseWriter, request *http.Request) {
-	fmt.Println("RootHandler")
+	fmt.Println("RootHandler", request.RequestURI)
 
 	result, err := xml.Marshal(model.Root)
 	if err != nil {

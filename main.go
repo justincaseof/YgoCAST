@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/felixge/httpsnoop"
 	"log"
 	"net/http"
 	"time"
@@ -14,7 +15,6 @@ func main() {
 	fmt.Println("Hi!")
 
 	loadData()
-	addHandlers()
 	startServer()
 }
 func loadData() {
@@ -36,19 +36,32 @@ func loadData() {
 
 }
 
-func addHandlers() {
-	http.HandleFunc("/", handler.RootHandler)
-	http.HandleFunc("/my_stations", handler.DirHandler)
-	http.HandleFunc("/my_stations/", handler.StationsHandler)
-}
-
 func startServer() {
+	mux := &http.ServeMux{}
+	mux.HandleFunc("/", handler.RootHandler)
+	mux.HandleFunc("/my_stations", handler.DirHandler)
+	mux.HandleFunc("/my_stations/", handler.StationsHandler)
+
+	// wrap mux with our logger. this will
+	var handler http.Handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		m := httpsnoop.CaptureMetrics(mux, w, r)
+		log.Printf(
+			"%s %s (code=%d dt=%s written=%d)",
+			r.Method,
+			r.URL,
+			m.Code,
+			m.Duration,
+			m.Written,
+		)
+	})
+	// ... potentially add more middleware handlers
+
 	s := &http.Server{
 		Addr:           ":80",
-		Handler:        nil, // if nil, uses http.DefaultServeMux
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
 		MaxHeaderBytes: 1 << 20,
+		Handler:        handler,
 	}
 	log.Fatal(s.ListenAndServe())
 }
