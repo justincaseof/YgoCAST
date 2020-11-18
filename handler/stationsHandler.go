@@ -20,8 +20,8 @@ func RadiobrowserHandler(writer http.ResponseWriter, request *http.Request) {
 				ItemType: model.Dir,
 				//Title: id,
 				Title:        time.Now().Format("15:04:05") + "." + fmt.Sprintf("%d", time.Now().Nanosecond()),
-				UrlDir:       "http://192.168.178.61/ycast/radiobrowser/dummy",
-				UrlDirBackUp: "http://192.168.178.61/ycast/radiobrowser/dummy",
+				UrlDir:       "http://192.168.178.61/ycast/radiobrowser/dummy", // FIXME: IP
+				UrlDirBackUp: "http://192.168.178.61/ycast/radiobrowser/dummy", // FIXME: IP
 				DirCount:     1,
 			},
 		},

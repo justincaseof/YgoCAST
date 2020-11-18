@@ -57,10 +57,10 @@ func startServer() {
 	mux := &http.ServeMux{}
 	mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/statxml.asp", handler.SetupHandlerStat)
 	mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/loginXML.asp", handler.SetupHandlerLogin)
-	mux.HandleFunc("/ycast/my_stations/", handler.StationsHandler)
-	mux.HandleFunc("/ycast/radiobrowser/", handler.RadiobrowserHandler)
-	mux.HandleFunc("/ycast", handler.RootHandler)
-	mux.HandleFunc("/", handler.RootHandler)
+	mux.Handle("/ycast/my_stations/", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.StationsHandler)))
+	mux.Handle("/ycast/radiobrowser/", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.RadiobrowserHandler)))
+	mux.Handle("/ycast", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.RootHandler)))
+	mux.Handle("/", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.RootHandler)))
 
 	// wrap mux with our logger. this will
 	var loggingWrap http.Handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -82,7 +82,7 @@ func startServer() {
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
 		MaxHeaderBytes: 1 << 20,
-		Handler:        middleware.StationIdMiddleware(middleware.MACAddressMiddleware(middleware.XMLEncodingLineAddingWrapper(loggingWrap))),
+		Handler:        middleware.StationIdMiddleware(middleware.MACAddressMiddleware(loggingWrap)),
 	}
 	log.Fatal(s.ListenAndServe())
 }

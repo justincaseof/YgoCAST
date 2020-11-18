@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<ListOfItems>
+    <ItemCount>5</ItemCount>
+    <Item>
+        <ItemType>Dir</ItemType>
+        <Title>IntergalacticFM</Title>
+        <UrlDir>http://192.168.178.61/ycast/my_stations/IntergalacticFM?vtuner=true</UrlDir>
+        <UrlDirBackUp>http://192.168.178.61/ycast/my_stations/IntergalacticFM?vtuner=true</UrlDirBackUp>
+        <DirCount>3</DirCount>
+    </Item>
+    <Item>
+        <ItemType>Dir</ItemType>
+        <Title>Jungletrain</Title>
+        <UrlDir>http://192.168.178.61/ycast/my_stations/Jungletrain?vtuner=true</UrlDir>
+        <UrlDirBackUp>http://192.168.178.61/ycast/my_stations/Jungletrain?vtuner=true</UrlDirBackUp>
+        <DirCount>3</DirCount>
+    </Item>
+    <Item>
+        <ItemType>Dir</ItemType>
+        <Title>Electronic</Title>
+        <UrlDir>http://192.168.178.61/ycast/my_stations/Electronic?vtuner=true</UrlDir>
+        <UrlDirBackUp>http://192.168.178.61/ycast/my_stations/Electronic?vtuner=true</UrlDirBackUp>
+        <DirCount>4</DirCount>
+    </Item>
+    <Item>
+        <ItemType>Dir</ItemType>
+        <Title>Chillout</Title>
+        <UrlDir>http://192.168.178.61/ycast/my_stations/Chillout?vtuner=true</UrlDir>
+        <UrlDirBackUp>http://192.168.178.61/ycast/my_stations/Chillout?vtuner=true</UrlDirBackUp>
+        <DirCount>6</DirCount>
+    </Item>
+</ListOfItems>
