@@ -8,6 +8,7 @@ import (
 	"time"
 	"ygost/handler"
 	"ygost/helper"
+	"ygost/middleware"
 	"ygost/model"
 )
 
@@ -42,7 +43,6 @@ func startServer() {
 	mux := &http.ServeMux{}
 	mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/statxml.asp", handler.SetupHandlerStat)
 	mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/loginXML.asp", handler.SetupHandlerLogin)
-	//mux.HandleFunc("/ycast/my_stations", handler.DirHandler)
 	mux.HandleFunc("/ycast/my_stations/", handler.StationsHandler)
 	mux.HandleFunc("/ycast", handler.RootHandler)
 	mux.HandleFunc("/", handler.RootHandler)
@@ -67,7 +67,7 @@ func startServer() {
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
 		MaxHeaderBytes: 1 << 20,
-		Handler:        loggingWrap,
+		Handler:        middleware.MACAddressMiddleware(middleware.XMLEncodingLineAddingWrapper(loggingWrap)),
 	}
 	log.Fatal(s.ListenAndServe())
 }

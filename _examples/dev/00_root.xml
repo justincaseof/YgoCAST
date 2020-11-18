@@ -3,16 +3,16 @@
     <ItemCount>-1</ItemCount>
     <Item>
         <ItemType>Dir</ItemType>
-        <Title>Radiobrowser</Title>
-        <UrlDir>http://192.168.178.61/ycast/radiobrowser/?vtuner=true</UrlDir>
-        <UrlDirBackUp>http://192.168.178.61/ycast/radiobrowser/?vtuner=true</UrlDirBackUp>
-        <DirCount>4</DirCount>
-    </Item>
-    <Item>
-        <ItemType>Dir</ItemType>
         <Title>My Stations</Title>
         <UrlDir>http://192.168.178.61/ycast/my_stations/?vtuner=true</UrlDir>
         <UrlDirBackUp>http://192.168.178.61/ycast/my_stations/?vtuner=true</UrlDirBackUp>
         <DirCount>3</DirCount>
+    </Item>
+    <Item>
+        <ItemType>Dir</ItemType>
+        <Title> ### Gruss vom Tobse :-) ###</Title>
+        <UrlDir>http://192.168.178.61/ycast/radiobrowser/?vtuner=true</UrlDir>
+        <UrlDirBackUp>http://192.168.178.61/ycast/radiobrowser/?vtuner=true</UrlDirBackUp>
+        <DirCount>4</DirCount>
     </Item>
 </ListOfItems>

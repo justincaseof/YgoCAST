@@ -50,9 +50,6 @@ func SetupHandlerLogin(writer http.ResponseWriter, request *http.Request) {
 		writer.Write([]byte("<EncryptedToken>0000000000000000</EncryptedToken>"))
 	} else {
 		fmt.Println("  --> Redirecting to root.")
-
-		// TODO: extract MAC
-
 		RootHandler(writer, request)
 	}
 }
