@@ -18,6 +18,7 @@ func main() {
 	loadData()
 	startServer()
 }
+
 func loadData() {
 	//IP := "192.168.178.61"
 	//Path := "/"
@@ -34,6 +35,18 @@ func loadData() {
 	model.MyStationsItems["Electronic"] = Electronic
 	model.MyStationsItems["Chillout"] = Chillout
 	model.MyStationsItems["IntergalacticFM"] = IntergalacticFM
+
+	// generade IDs and fill hashtable for lookup
+	model.StationIDtoStationMapping = make(map[string]model.Item)
+	for _, listOfItems := range model.MyStationsItems {
+		for _, item := range listOfItems.Items {
+			//id := middleware.GenerateStationID()
+			//item.StationId = id
+			//model.StationIDtoStationMapping[id] = item
+
+			model.StationIDtoStationMapping[item.StationId] = item
+		}
+	}
 
 }
 
@@ -67,7 +80,7 @@ func startServer() {
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
 		MaxHeaderBytes: 1 << 20,
-		Handler:        middleware.MACAddressMiddleware(middleware.XMLEncodingLineAddingWrapper(loggingWrap)),
+		Handler:        middleware.StationIdMiddleware(middleware.MACAddressMiddleware(middleware.XMLEncodingLineAddingWrapper(loggingWrap))),
 	}
 	log.Fatal(s.ListenAndServe())
 }

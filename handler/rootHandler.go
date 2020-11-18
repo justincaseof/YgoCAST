@@ -20,15 +20,14 @@ func RootHandler(writer http.ResponseWriter, request *http.Request) {
 
 func SetupHandlerStat(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("SetupHandlerStat")
+	stationId := request.Context().Value("StationId")
+	fmt.Println("  --> StationId: ", stationId)
 
 	//  * /setupapp/Yamaha/asp/BrowseXML/statxml.asp?mac=e3629f8b2113402738c4d17f406793dc&fver=W&id=MY_B08E60982371
 	//    --> simply respond with the station of given ID
 
-	// FIXME TODO extract id
-
-	fmt.Println("  --> station by id")
 	// for now, always return dummy
-	singleStationById := StationById("foo")
+	singleStationById := SingleStationById(fmt.Sprintf("%s", stationId)) // what?
 
 	result, err := xml.Marshal(singleStationById)
 	if err != nil {

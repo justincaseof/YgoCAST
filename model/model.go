@@ -69,3 +69,5 @@ var Root ListOfItems = ListOfItems{
 var MyStations ListOfItems
 
 var MyStationsItems map[string]ListOfItems
+
+var StationIDtoStationMapping map[string]Item
