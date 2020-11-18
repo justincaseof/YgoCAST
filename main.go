@@ -27,7 +27,7 @@ func loadData() {
 	model.Root = helper.ParseFile("_examples/dev/00_root.xml")
 
 	// ### MYSTATIONS
-	model.MyStations = helper.ParseFile("_examples/dev/01_my_stations.xml")
+	model.MyStations = helper.ParseFile("_examples/dev/01-01_my_stations.xml")
 
 	// ### My-Stations Folders
 	Jungletrain := helper.ParseFile("_examples/dev/02-00_my_stations-Jungletrain.xml")
@@ -58,6 +58,7 @@ func startServer() {
 	mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/statxml.asp", handler.SetupHandlerStat)
 	mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/loginXML.asp", handler.SetupHandlerLogin)
 	mux.HandleFunc("/ycast/my_stations/", handler.StationsHandler)
+	mux.HandleFunc("/ycast/radiobrowser/", handler.RadiobrowserHandler)
 	mux.HandleFunc("/ycast", handler.RootHandler)
 	mux.HandleFunc("/", handler.RootHandler)
 

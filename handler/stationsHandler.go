@@ -5,8 +5,34 @@ import (
 	"fmt"
 	"net/http"
 	"regexp"
+	"time"
 	"ygost/model"
 )
+
+func RadiobrowserHandler(writer http.ResponseWriter, request *http.Request) {
+	fmt.Println("RadiobrowserHandler")
+
+	//id := middleware.GenerateStationID()
+	dummy := model.ListOfItems{
+		ItemCount: 1,
+		Items: []model.Item{
+			model.Item{
+				ItemType: model.Dir,
+				//Title: id,
+				Title:        time.Now().Format("15:04:05") + "." + fmt.Sprintf("%d", time.Now().Nanosecond()),
+				UrlDir:       "http://192.168.178.61/ycast/radiobrowser/dummy",
+				UrlDirBackUp: "http://192.168.178.61/ycast/radiobrowser/dummy",
+				DirCount:     1,
+			},
+		},
+	}
+
+	result, err := xml.Marshal(dummy)
+	if err != nil {
+		fmt.Println("cannot marshall")
+	}
+	writer.Write(result)
+}
 
 func StationsHandler(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("StationsHandler")
