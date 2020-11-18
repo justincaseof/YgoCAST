@@ -9,8 +9,9 @@ type ListOfItems struct {
 }
 
 type Item struct {
-	XMLName  xml.Name `xml:"Item"`
-	ItemType string   `xml:"ItemType"`
+	XMLName xml.Name `xml:"Item"`
+
+	ItemType ItemType `xml:"ItemType"` // 'Dir' or 'Station'  (probably case sensitive)
 
 	// ItemType="Dir"
 	Title        string `xml:"Title,omitempty"`
@@ -30,28 +31,41 @@ type Item struct {
 	StationMime      string `xml:"StationMime,omitempty"`
 	Relia            string `xml:"Relia,omitempty"`
 	Bookmark         string `xml:"Bookmark,omitempty"`
+
+	// ItemType="Display"
+	Display string `xml:"Display,omitempty"`
 }
 
-// ###
+type ItemType string
+
+const (
+	Dir     ItemType = "Dir"
+	Station ItemType = "Station"
+	Display ItemType = "Display"
+)
+
+// ####################################
 
 var Root ListOfItems = ListOfItems{
 	ItemCount: -1, // looks like to be some kind of default for root folder
 	Items: []Item{
 		Item{
 			ItemType:     "Dir",
-			Title:        "Radiobrowser",
+			Title:        "Radiobrowser", // dont't change. works as 'id' and will be key for our tree
 			UrlDir:       "http:// TODO",
 			UrlDirBackUp: "http:// TODO",
 			DirCount:     4,
 		},
 		Item{
 			ItemType:     "Dir",
-			Title:        "My Stations",
+			Title:        "My Stations", // dont't change. works as 'id' and will be key for our tree
 			UrlDir:       "http:// TODO",
 			UrlDirBackUp: "http:// TODO",
 			DirCount:     4,
 		},
 	},
 }
+
 var MyStations ListOfItems
-var Chill ListOfItems
+
+var MyStationsItems map[string]ListOfItems

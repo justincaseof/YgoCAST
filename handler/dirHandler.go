@@ -4,14 +4,13 @@ import (
 	"encoding/xml"
 	"fmt"
 	"net/http"
-	"ygost/helper"
+	"ygost/model"
 )
 
 func DirHandler(writer http.ResponseWriter, request *http.Request) {
-	fmt.Println("DirHandler")
-	items := helper.ParseFile("_examples/01_my_stations.xml")
+	fmt.Println("DirHandler: ", request.RequestURI)
 
-	result, err := xml.Marshal(items)
+	result, err := xml.Marshal(model.MyStations)
 	if err != nil {
 		fmt.Println("cannot marshall")
 	}

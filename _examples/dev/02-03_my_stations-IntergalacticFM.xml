@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<ListOfItems>
+    <ItemCount>3</ItemCount>
+    <Item>
+        <ItemType>Station</ItemType>
+        <StationId>MY_544FC7EFA412</StationId>
+        <StationName>Main</StationName>
+        <StationUrl>http://radio.intergalactic.fm:80/2</StationUrl>
+        <StationDesc>IntergalacticFM</StationDesc>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_544FC7EFA412</Logo>
+        <StationFormat>IntergalacticFM</StationFormat>
+        <StationLocation />
+        <StationBandWidth />
+        <StationMime />
+        <Relia>3</Relia>
+        <Bookmark />
+    </Item>
+    <Item>
+        <ItemType>Station</ItemType>
+        <StationId>MY_186445F28C30</StationId>
+        <StationName>CBS</StationName>
+        <StationUrl>http://radio.intergalactic.fm:80/1</StationUrl>
+        <StationDesc>IntergalacticFM</StationDesc>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_186445F28C30</Logo>
+        <StationFormat>IntergalacticFM</StationFormat>
+        <StationLocation />
+        <StationBandWidth />
+        <StationMime />
+        <Relia>3</Relia>
+        <Bookmark />
+    </Item>
+    <Item>
+        <ItemType>Station</ItemType>
+        <StationId>MY_8AA148FE0DD1</StationId>
+        <StationName>DreamMachine</StationName>
+        <StationUrl>http://radio.intergalactic.fm:80/3</StationUrl>
+        <StationDesc>IntergalacticFM</StationDesc>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_8AA148FE0DD1</Logo>
+        <StationFormat>IntergalacticFM</StationFormat>
+        <StationLocation />
+        <StationBandWidth />
+        <StationMime />
+        <Relia>3</Relia>
+        <Bookmark />
+    </Item>
+</ListOfItems>

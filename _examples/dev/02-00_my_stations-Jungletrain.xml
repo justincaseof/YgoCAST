@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<ListOfItems>
+    <ItemCount>3</ItemCount>
+    <Item>
+        <ItemType>Station</ItemType>
+        <StationId>MY_5A771F341713</StationId>
+        <StationName>JungleTrain#1</StationName>
+        <StationUrl>http://stream1.jungletrain.net:8000/</StationUrl>
+        <StationDesc>Jungletrain</StationDesc>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_5A771F341713</Logo>
+        <StationFormat>Jungletrain</StationFormat>
+        <StationLocation />
+        <StationBandWidth />
+        <StationMime />
+        <Relia>3</Relia>
+        <Bookmark />
+    </Item>
+    <Item>
+        <ItemType>Station</ItemType>
+        <StationId>MY_CB33880A7308</StationId>
+        <StationName>JungleTrain#2</StationName>
+        <StationUrl>http://stream6.jungletrain.net:8000/</StationUrl>
+        <StationDesc>Jungletrain</StationDesc>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_CB33880A7308</Logo>
+        <StationFormat>Jungletrain</StationFormat>
+        <StationLocation />
+        <StationBandWidth />
+        <StationMime />
+        <Relia>3</Relia>
+        <Bookmark />
+    </Item>
+    <Item>
+        <ItemType>Station</ItemType>
+        <StationId>MY_AE784DFABA93</StationId>
+        <StationName>JungleTrain#3</StationName>
+        <StationUrl>http://stream5.jungletrain.net:8000/</StationUrl>
+        <StationDesc>Jungletrain</StationDesc>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_AE784DFABA93</Logo>
+        <StationFormat>Jungletrain</StationFormat>
+        <StationLocation />
+        <StationBandWidth />
+        <StationMime />
+        <Relia>3</Relia>
+        <Bookmark />
+    </Item>
+</ListOfItems>

@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebf71215-a54e-439d-a784-451d969f5120" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/_examples/dev/00_root.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_examples/dev/01_my_stations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_examples/dev/02-00_my_stations-Jungletrain.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_examples/dev/02-01_my_stations-Electronic.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_examples/dev/02-02_my_stations-Chillout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_examples/dev/02-03_my_stations-IntergalacticFM.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_examples/00_root.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_examples/DO_NOT_CHANGE_TESTS_DEPEND_ON_IT/00_root.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_examples/01_my_stations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_examples/DO_NOT_CHANGE_TESTS_DEPEND_ON_IT/01_my_stations.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_examples/02_my_stations-GROUPNAME.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_examples/DO_NOT_CHANGE_TESTS_DEPEND_ON_IT/02_my_stations-GROUPNAME.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler/rootHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/rootHandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/main_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/dirHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/dirHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/stationsHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/stationsHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/model.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,33 +33,33 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="fileHelper" value="1" />
-          <entry key="go" value="19" />
+          <entry key="go" value="27" />
           <entry key="md" value="1" />
           <entry key="root" value="1" />
-          <entry key="xml" value="6" />
+          <entry key="xml" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Go" value="19" />
+          <entry key="Go" value="27" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="XML" value="7" />
+          <entry key="XML" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="1964" />
+          <entry key="go" value="2836" />
           <entry key="md" value="35" />
-          <entry key="txt" value="111" />
+          <entry key="txt" value="130" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="1964" />
+          <entry key="Go" value="2836" />
           <entry key="Markdown" value="35" />
-          <entry key="PLAIN_TEXT" value="111" />
+          <entry key="PLAIN_TEXT" value="130" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -71,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/handler/rootHandler.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="12" column="41" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="41" />
+              <caret line="12" column="42" lean-forward="true" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -79,83 +84,80 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/handler/dirHandler.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/helper/fileHelper.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-              <folding>
-                <element signature="e#16#83#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="85">
+              <caret line="10" column="50" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main_test.go">
+        <entry file="file://$PROJECT_DIR$/handler/stationsHandler.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="44" column="83" selection-start-line="44" selection-start-column="83" selection-end-line="44" selection-end-column="83" />
+            <state relative-caret-position="85">
+              <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_examples/DO_NOT_CHANGE_TESTS_DEPEND_ON_IT/00_root.xml">
+        <entry file="file://$PROJECT_DIR$/_examples/dev/01_my_stations.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_examples/dev/02-03_my_stations-IntergalacticFM.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_examples/dev/02-01_my_stations-Electronic.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="426">
+              <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_examples/dev/02-00_my_stations-Jungletrain.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="629">
+              <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="40" column="33" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_examples/dev/02-02_my_stations-Chillout.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="426">
+              <caret line="79" column="36" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_examples/dev/00_root.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" column="74" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/model.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-238">
-              <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Go/src/os/file_windows.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2856">
-              <caret line="175" selection-start-line="175" selection-end-line="175" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Go/src/runtime/panic.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11645">
-              <caret line="689" selection-start-line="689" selection-end-line="689" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Go/src/testing/testing.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13821">
-              <caret line="829" selection-start-line="829" selection-end-line="829" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Go/src/bytes/buffer.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2822">
-              <caret line="170" column="17" selection-start-line="170" selection-start-column="17" selection-end-line="170" selection-end-column="17" />
+              <caret line="14" column="43" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -176,6 +178,9 @@
     <replaceStrings>
       <replace>192.168.178.61</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\tobi\go\src\ygost\_examples\dev</dir>
+    </dirStrings>
   </component>
   <component name="GOROOT" path="C:\Go" />
   <component name="Git.Settings">
@@ -188,16 +193,25 @@
         <option value="$PROJECT_DIR$/_examples/root.xml" />
         <option value="$PROJECT_DIR$/model.go" />
         <option value="$PROJECT_DIR$/handler/categoryHandler.go" />
-        <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/helper/fileHelper.go" />
         <option value="$PROJECT_DIR$/_examples/01_my_stations.xml" />
         <option value="$PROJECT_DIR$/_examples/00_root.xml" />
         <option value="$PROJECT_DIR$/_examples/02_my_stations-GROUPNAME.xml" />
-        <option value="$PROJECT_DIR$/handler/dirHandler.go" />
-        <option value="$PROJECT_DIR$/handler/stationsHandler.go" />
-        <option value="$PROJECT_DIR$/model/model.go" />
         <option value="$PROJECT_DIR$/handler/rootHandler.go" />
         <option value="$PROJECT_DIR$/main_test.go" />
+        <option value="$PROJECT_DIR$/_examples/dev/02_my_stations-Jungletrain.xml" />
+        <option value="$PROJECT_DIR$/model/model.go" />
+        <option value="$PROJECT_DIR$/_examples/dev/02-2_my_stations-Chillout.xml" />
+        <option value="$PROJECT_DIR$/_examples/dev/02_my_stations-IntergalacticFM.xml" />
+        <option value="$PROJECT_DIR$/_examples/dev/02_my_stations-Electronic.xml" />
+        <option value="$PROJECT_DIR$/_examples/dev/01_my_stations.xml" />
+        <option value="$PROJECT_DIR$/_examples/dev/02-00_my_stations-Jungletrain.xml" />
+        <option value="$PROJECT_DIR$/_examples/dev/02-01_my_stations-Electronic.xml" />
+        <option value="$PROJECT_DIR$/_examples/dev/02-02_my_stations-Chillout.xml" />
+        <option value="$PROJECT_DIR$/_examples/dev/02-03_my_stations-IntergalacticFM.xml" />
+        <option value="$PROJECT_DIR$/handler/dirHandler.go" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/handler/stationsHandler.go" />
       </list>
     </option>
   </component>
@@ -231,6 +245,12 @@
               <item name="ygost" type="b2602c69:ProjectViewProjectNode" />
               <item name="ygost" type="462c0819:PsiDirectoryNode" />
               <item name="_examples" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ygost" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ygost" type="462c0819:PsiDirectoryNode" />
+              <item name="_examples" type="462c0819:PsiDirectoryNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ygost" type="b2602c69:ProjectViewProjectNode" />
@@ -273,6 +293,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tobi\go\src\ygost\_examples\dev" />
       <recent name="C:\Users\tobi\go\src\ygost\handler" />
       <recent name="C:\Users\tobi\go\src\ygost\_examples" />
       <recent name="C:\Users\tobi\go\src\ygost" />
@@ -296,7 +317,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.main_test.go">
+  <component name="RunManager" selected="Go Build.go build main.go">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="ygost" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -333,9 +354,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Test.main_test.go" />
         <item itemvalue="Go Test.go test ygost" />
-        <item itemvalue="Go Build.go build main.go" />
       </list>
     </recent_temporary>
   </component>
@@ -359,6 +380,12 @@
       <configuration name="main_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
     <history-entry file="main_test_go - 2020.11.18 at 11h 28m 12s.xml">
+      <configuration name="main_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="main_test_go - 2020.11.18 at 11h 31m 54s.xml">
+      <configuration name="main_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="main_test_go - 2020.11.18 at 12h 18m 01s.xml">
       <configuration name="main_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
@@ -397,7 +424,8 @@
     <MESSAGE value="* moved files&#10;* added test, main is empty&#10;* added http handlers" />
     <MESSAGE value="* moved stuff" />
     <MESSAGE value="* renaming&#10;* prepare more tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="* renaming&#10;* prepare more tests" />
+    <MESSAGE value="* make test working" />
+    <option name="LAST_COMMIT_MESSAGE" value="* make test working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -422,13 +450,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/helper/fileHelper" />
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Go/src/encoding/xml/marshal.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -457,24 +478,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handler/stationsHandler.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Go/src/net/http/httptest/recorder.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1649">
           <caret line="106" selection-start-line="106" selection-end-line="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handler/dirHandler.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -506,30 +513,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/helper/fileHelper.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <element signature="e#16#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handler/rootHandler.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="41" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/model.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_examples/DO_NOT_CHANGE_TESTS_DEPEND_ON_IT/00_root.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -539,8 +522,95 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="44" column="83" selection-start-line="44" selection-start-column="83" selection-end-line="44" selection-end-column="83" />
+        <state relative-caret-position="487">
+          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helper/fileHelper.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="14" />
+          <folding>
+            <element signature="e#16#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/model.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_examples/dev/00_root.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="43" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_examples/dev/01_my_stations.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_examples/dev/02-01_my_stations-Electronic.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_examples/dev/02-02_my_stations-Chillout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="79" column="36" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_examples/dev/02-03_my_stations-IntergalacticFM.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="40" column="33" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_examples/dev/02-00_my_stations-Jungletrain.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handler/rootHandler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="42" lean-forward="true" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handler/dirHandler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handler/stationsHandler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
         </state>
       </provider>
     </entry>

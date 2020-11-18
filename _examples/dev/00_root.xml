@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ListOfItems>
+    <ItemCount>-1</ItemCount>
+    <Item>
+        <ItemType>Dir</ItemType>
+        <Title>Radiobrowser</Title>
+        <UrlDir>http://192.168.178.61/ycast/radiobrowser/?vtuner=true</UrlDir>
+        <UrlDirBackUp>http://192.168.178.61/ycast/radiobrowser/?vtuner=true</UrlDirBackUp>
+        <DirCount>4</DirCount>
+    </Item>
+    <Item>
+        <ItemType>Dir</ItemType>
+        <Title>My Stations</Title>
+        <UrlDir>http://192.168.178.61/ycast/my_stations/?vtuner=true</UrlDir>
+        <UrlDirBackUp>http://192.168.178.61/ycast/my_stations/?vtuner=true</UrlDirBackUp>
+        <DirCount>3</DirCount>
+    </Item>
+</ListOfItems>

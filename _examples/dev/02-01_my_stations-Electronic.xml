@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<ListOfItems>
+    <ItemCount>4</ItemCount>
+    <Item>
+        <ItemType>Station</ItemType>
+        <StationId>MY_82F6538FA409</StationId>
+        <StationName>Deep House Lounge</StationName>
+        <StationUrl>http://198.15.94.34:8006</StationUrl>
+        <StationDesc>Electronic</StationDesc>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_82F6538FA409</Logo>
+        <StationFormat>Electronic</StationFormat>
+        <StationLocation />
+        <StationBandWidth />
+        <StationMime />
+        <Relia>3</Relia>
+        <Bookmark />
+    </Item>
+    <Item>
+        <ItemType>Station</ItemType>
+        <StationId>MY_2575D55C16F0</StationId>
+        <StationName>Ibiza Sonica</StationName>
+        <StationUrl>http://s1.sonicabroadcast.com:7005/stream</StationUrl>
+        <StationDesc>Electronic</StationDesc>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_2575D55C16F0</Logo>
+        <StationFormat>Electronic</StationFormat>
+        <StationLocation />
+        <StationBandWidth />
+        <StationMime />
+        <Relia>3</Relia>
+        <Bookmark />
+    </Item>
+    <Item>
+        <ItemType>Station</ItemType>
+        <StationId>MY_3690EF8202E5</StationId>
+        <StationName>Bassdrive</StationName>
+        <StationUrl>http://50.7.98.106:8200</StationUrl>
+        <StationDesc>Electronic</StationDesc>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_3690EF8202E5</Logo>
+        <StationFormat>Electronic</StationFormat>
+        <StationLocation />
+        <StationBandWidth />
+        <StationMime />
+        <Relia>3</Relia>
+        <Bookmark />
+    </Item>
+    <Item>
+        <ItemType>Station</ItemType>
+        <StationId>MY_5A52DE6AB2D1</StationId>
+        <StationName>SomaFM Fluid</StationName>
+        <StationUrl>http://ice1.somafm.com/fluid-128-mp3</StationUrl>
+        <StationDesc>Electronic</StationDesc>
+        <Logo>http://192.168.178.61/ycast/icon?id=MY_5A52DE6AB2D1</Logo>
+        <StationFormat>Electronic</StationFormat>
+        <StationLocation />
+        <StationBandWidth />
+        <StationMime />
+        <Relia>3</Relia>
+        <Bookmark />
+    </Item>
+</ListOfItems>

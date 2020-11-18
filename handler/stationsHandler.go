@@ -4,14 +4,13 @@ import (
 	"encoding/xml"
 	"fmt"
 	"net/http"
-	"ygost/helper"
+	"ygost/model"
 )
 
 func StationsHandler(writer http.ResponseWriter, request *http.Request) {
-	fmt.Println("StationsHandler")
-	items := helper.ParseFile("_examples/02_my_stations-GROUPNAME.xml")
+	fmt.Println("StationsHandler: ", request.RequestURI)
 
-	result, err := xml.Marshal(items)
+	result, err := xml.Marshal(model.MyStationsItems["Chillout"])
 	if err != nil {
 		fmt.Println("cannot marshall")
 	}
