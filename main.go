@@ -37,14 +37,20 @@ func loadData() {
 }
 
 func startServer() {
+	// add xml header XML_HEADER = '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>'
+
 	mux := &http.ServeMux{}
+	mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/statxml.asp", handler.SetupHandlerStat)
+	mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/loginXML.asp", handler.SetupHandlerLogin)
+	//mux.HandleFunc("/ycast/my_stations", handler.DirHandler)
+	mux.HandleFunc("/ycast/my_stations/", handler.StationsHandler)
+	mux.HandleFunc("/ycast", handler.RootHandler)
 	mux.HandleFunc("/", handler.RootHandler)
-	mux.HandleFunc("/my_stations", handler.DirHandler)
-	mux.HandleFunc("/my_stations/", handler.StationsHandler)
 
 	// wrap mux with our logger. this will
-	var handler http.Handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	var loggingWrap http.Handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		m := httpsnoop.CaptureMetrics(mux, w, r)
+
 		log.Printf(
 			"%s %s (code=%d dt=%s written=%d)",
 			r.Method,
@@ -61,7 +67,7 @@ func startServer() {
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
 		MaxHeaderBytes: 1 << 20,
-		Handler:        handler,
+		Handler:        loggingWrap,
 	}
 	log.Fatal(s.ListenAndServe())
 }
