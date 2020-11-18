@@ -4,7 +4,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"net/http"
-	"strings"
+	"regexp"
 	"ygost/model"
 )
 
@@ -12,7 +12,19 @@ func StationsHandler(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("StationsHandler")
 	fmt.Println("  --> MAC: ", request.Context().Value("MAC"))
 
-	if strings.Contains(request.RequestURI, "/?vtuner") { // stupid check for "root"
+	directoryName := ""
+	//regex := regexp.MustCompile(`(.)*my_stations/(.*)([/]?\?vtuner)`)
+	regex := regexp.MustCompile(`(.)*my_stations/([^\? /]*)`)
+	if regex.MatchString(request.RequestURI) {
+		//fmt.Println("MATCH ! ")
+		subMatches := regex.FindStringSubmatch(request.RequestURI)
+		directoryName = subMatches[2]
+		fmt.Println("  --> Desired Directory: ", directoryName)
+	} else {
+		//fmt.Println("NO MATCH")
+	}
+
+	if directoryName == "" {
 		// we need to respond with our genres/directories
 		fmt.Println("  --> responding Directories")
 		result, err := xml.Marshal(model.MyStations)
@@ -21,12 +33,8 @@ func StationsHandler(writer http.ResponseWriter, request *http.Request) {
 		}
 		writer.Write(result)
 	} else {
-		fmt.Println("  --> responding Stations of Directory")
-
-		// TODO: extract Directory name
-
-		directoryName := "Chillout" // FIXME dummy
-		result, err := xml.Marshal(model.MyStationsItems[directoryName])
+		fmt.Println("  --> responding Stations of Directory ", directoryName)
+		result, err := xml.Marshal(model.MyStationsDirNameToListOfItemsMapping[directoryName])
 		if err != nil {
 			fmt.Println("cannot marshall")
 		}

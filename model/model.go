@@ -46,28 +46,8 @@ const (
 
 // ####################################
 
-var Root ListOfItems = ListOfItems{
-	ItemCount: -1, // looks like to be some kind of default for root folder
-	Items: []Item{
-		Item{
-			ItemType:     "Dir",
-			Title:        "Radiobrowser", // dont't change. works as 'id' and will be key for our tree
-			UrlDir:       "http:// TODO",
-			UrlDirBackUp: "http:// TODO",
-			DirCount:     4,
-		},
-		Item{
-			ItemType:     "Dir",
-			Title:        "My Stations", // dont't change. works as 'id' and will be key for our tree
-			UrlDir:       "http:// TODO",
-			UrlDirBackUp: "http:// TODO",
-			DirCount:     4,
-		},
-	},
-}
-
+var Root ListOfItems
 var MyStations ListOfItems
 
-var MyStationsItems map[string]ListOfItems
-
+var MyStationsDirNameToListOfItemsMapping map[string]ListOfItems
 var StationIDtoStationMapping map[string]Item

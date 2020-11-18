@@ -23,27 +23,28 @@ func loadData() {
 	//IP := "192.168.178.61"
 	//Path := "/"
 
+	// ### ROOT
 	model.Root = helper.ParseFile("_examples/dev/00_root.xml")
+
+	// ### MYSTATIONS
 	model.MyStations = helper.ParseFile("_examples/dev/01_my_stations.xml")
 
+	// ### My-Stations Folders
 	Jungletrain := helper.ParseFile("_examples/dev/02-00_my_stations-Jungletrain.xml")
 	Electronic := helper.ParseFile("_examples/dev/02-01_my_stations-Electronic.xml")
 	Chillout := helper.ParseFile("_examples/dev/02-02_my_stations-Chillout.xml")
 	IntergalacticFM := helper.ParseFile("_examples/dev/02-03_my_stations-IntergalacticFM.xml")
-	model.MyStationsItems = make(map[string]model.ListOfItems)
-	model.MyStationsItems["Jungletrain"] = Jungletrain
-	model.MyStationsItems["Electronic"] = Electronic
-	model.MyStationsItems["Chillout"] = Chillout
-	model.MyStationsItems["IntergalacticFM"] = IntergalacticFM
+	model.MyStationsDirNameToListOfItemsMapping = make(map[string]model.ListOfItems)
+	model.MyStationsDirNameToListOfItemsMapping["Jungletrain"] = Jungletrain
+	model.MyStationsDirNameToListOfItemsMapping["Electronic"] = Electronic
+	model.MyStationsDirNameToListOfItemsMapping["Chillout"] = Chillout
+	model.MyStationsDirNameToListOfItemsMapping["IntergalacticFM"] = IntergalacticFM
 
+	// ===== MAPPING STUFF =====
 	// generade IDs and fill hashtable for lookup
 	model.StationIDtoStationMapping = make(map[string]model.Item)
-	for _, listOfItems := range model.MyStationsItems {
+	for _, listOfItems := range model.MyStationsDirNameToListOfItemsMapping {
 		for _, item := range listOfItems.Items {
-			//id := middleware.GenerateStationID()
-			//item.StationId = id
-			//model.StationIDtoStationMapping[id] = item
-
 			model.StationIDtoStationMapping[item.StationId] = item
 		}
 	}
