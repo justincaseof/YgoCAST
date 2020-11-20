@@ -55,6 +55,8 @@ func startServer() {
 	// add xml header XML_HEADER = '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>'
 
 	mux := &http.ServeMux{}
+	mux.HandleFunc("/ycast/icon", handler.IconHandler)
+	mux.HandleFunc("/icon", handler.IconHandler)
 	mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/statxml.asp", handler.SetupHandlerStat)
 	mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/loginXML.asp", handler.SetupHandlerLogin)
 	mux.Handle("/ycast/my_stations/", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.StationsHandler)))

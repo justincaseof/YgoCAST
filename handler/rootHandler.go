@@ -3,7 +3,9 @@ package handler
 import (
 	"encoding/xml"
 	"fmt"
+	"io/ioutil"
 	"net/http"
+	"os"
 	"strings"
 	"ygost/model"
 )
@@ -51,4 +53,20 @@ func SetupHandlerLogin(writer http.ResponseWriter, request *http.Request) {
 		fmt.Println("  --> Redirecting to root.")
 		RootHandler(writer, request)
 	}
+}
+
+func IconHandler(writer http.ResponseWriter, request *http.Request) {
+	fmt.Println("IconHandler")
+
+	iconFile, err := os.Open("_examples/icon.jpeg")
+	// if we os.Open returns an error then handle it
+	if err != nil {
+		fmt.Println(err)
+	}
+	// defer the closing of our xmlFile so that we can parse it later on
+	defer iconFile.Close()
+
+	// ##################################################################################
+	byteValue, _ := ioutil.ReadAll(iconFile)
+	writer.Write(byteValue)
 }

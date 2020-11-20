@@ -60,7 +60,10 @@ func StationsHandler(writer http.ResponseWriter, request *http.Request) {
 		writer.Write(result)
 	} else {
 		fmt.Println("  --> responding Stations of Directory ", directoryName)
-		result, err := xml.Marshal(model.MyStationsDirNameToListOfItemsMapping[directoryName])
+		subdirList := model.MyStationsDirNameToListOfItemsMapping[directoryName]
+		subdirList.ItemCount = int32(len(subdirList.Items)) // update, just in case
+
+		result, err := xml.Marshal(subdirList)
 		if err != nil {
 			fmt.Println("cannot marshall")
 		}
