@@ -9,7 +9,7 @@ import (
 	"ygost/handler"
 	"ygost/helper"
 	"ygost/middleware"
-	"ygost/model"
+	"ygost/model_yamaha"
 )
 
 func main() {
@@ -24,28 +24,28 @@ func loadData() {
 	//Path := "/"
 
 	// ### ROOT
-	model.Root = helper.ParseYamahaXMLFile("_examples/dev/00_root.xml")
+	//model.YamahaRoot = helper.ParseYamahaXMLFile("_examples/dev/00_root.xml")
 
 	// ### MYSTATIONS
-	model.MyStations = helper.ParseYamahaXMLFile("_examples/dev/01-01_my_stations.xml")
+	//model.YamahaMyStations = helper.ParseYamahaXMLFile("_examples/dev/01-01_my_stations.xml")
 
 	// ### My-Stations Folders
-	Jungletrain := helper.ParseYamahaXMLFile("_examples/dev/02-00_my_stations-Jungletrain.xml")
-	Electronic := helper.ParseYamahaXMLFile("_examples/dev/02-01_my_stations-Electronic.xml")
-	Chillout := helper.ParseYamahaXMLFile("_examples/dev/02-02_my_stations-Chillout.xml")
-	IntergalacticFM := helper.ParseYamahaXMLFile("_examples/dev/02-03_my_stations-IntergalacticFM.xml")
-	model.MyStationsDirNameToListOfItemsMapping = make(map[string]model.ListOfItems)
-	model.MyStationsDirNameToListOfItemsMapping["Jungletrain"] = Jungletrain
-	model.MyStationsDirNameToListOfItemsMapping["Electronic"] = Electronic
-	model.MyStationsDirNameToListOfItemsMapping["Chillout"] = Chillout
-	model.MyStationsDirNameToListOfItemsMapping["IntergalacticFM"] = IntergalacticFM
+	//Jungletrain := helper.ParseYamahaXMLFile("_examples/dev/02-00_my_stations-Jungletrain.xml")
+	//Electronic := helper.ParseYamahaXMLFile("_examples/dev/02-01_my_stations-Electronic.xml")
+	//Chillout := helper.ParseYamahaXMLFile("_examples/dev/02-02_my_stations-Chillout.xml")
+	//IntergalacticFM := helper.ParseYamahaXMLFile("_examples/dev/02-03_my_stations-IntergalacticFM.xml")
+	//model.MyStationsDirNameToListOfItemsMapping = make(map[string]model.ListOfItems)
+	//model.MyStationsDirNameToListOfItemsMapping["Jungletrain"] = Jungletrain
+	//model.MyStationsDirNameToListOfItemsMapping["Electronic"] = Electronic
+	//model.MyStationsDirNameToListOfItemsMapping["Chillout"] = Chillout
+	//model.MyStationsDirNameToListOfItemsMapping["IntergalacticFM"] = IntergalacticFM
 
 	// ===== MAPPING STUFF =====
 	// generade IDs and fill hashtable for lookup
-	model.StationIDtoStationMapping = make(map[string]model.Item)
-	for _, listOfItems := range model.MyStationsDirNameToListOfItemsMapping {
+	model_yamaha.StationIDtoStationMapping = make(map[string]model_yamaha.StationItem)
+	for _, listOfItems := range model_yamaha.MyStationsDirNameToListOfItemsMapping {
 		for _, item := range listOfItems.Items {
-			model.StationIDtoStationMapping[item.StationId] = item
+			model_yamaha.StationIDtoStationMapping[item.StationId] = model_yamaha.StationItem(item)
 		}
 	}
 
@@ -59,6 +59,15 @@ func loadStations() {
 	stationsJson := helper.ParseJSON("_examples/my_stations.json")
 	fmt.Println(stationsYaml)
 	fmt.Println(stationsJson)
+
+	model_yamaha.YamahaMyStations.Encode(stationsYaml.SubDirectoriesAsList())
+
+	var stationsOfDir model_yamaha.StationsList
+	for key, val := range stationsYaml.SubDirectories {
+		stationsOfDir.Encode(key, val.Stations)
+	}
+
+	fmt.Println("")
 }
 
 func startServer() {

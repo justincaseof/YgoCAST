@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"os"
 	"ygost/model"
+	"ygost/model_yamaha"
 )
 
 type Helper interface {
@@ -21,7 +22,7 @@ func (YamlHelper) Unmarshal(in []byte, out interface{}) (err error) {
 	return yaml.Unmarshal(in, out)
 }
 func (YamlHelper) Marshal(v interface{}) ([]byte, error) {
-	return json.Marshal(v)
+	return yaml.Marshal(v)
 }
 
 type JSONHelper struct {
@@ -68,8 +69,8 @@ func ParseJSON(name string) model.MyStationDirectories {
 	parse(name, &myStations, JSONHelper{})
 	return myStations
 }
-func ParseYamahaXMLFile(name string) model.ListOfItems {
-	var listOfItems model.ListOfItems
+func ParseYamahaXMLFile(name string) model_yamaha.ListOfItems {
+	var listOfItems model_yamaha.ListOfItems
 	parse(name, &listOfItems, XMLHelper{})
 	return listOfItems
 }

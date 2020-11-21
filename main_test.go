@@ -4,41 +4,89 @@ import (
 	"encoding/xml"
 	"fmt"
 	"io/ioutil"
+	"net/http"
 	"net/http/httptest"
 	"os"
 	"testing"
 	"ygost/handler"
 	"ygost/helper"
 	"ygost/model"
+	"ygost/model_yamaha"
 )
 
 func TestParseSuccessOfRoot(t *testing.T) {
-	fmt.Println(helper.ParseFile("_examples/DO_NOT_CHANGE_TESTS_DEPEND_ON_IT/00_root.xml"))
+	fmt.Println(helper.ParseYamahaXMLFile("_examples/DO_NOT_CHANGE_TESTS_DEPEND_ON_IT/00_root.xml"))
 }
 
 func TestParseSuccessOfMyStations(t *testing.T) {
-	fmt.Println(helper.ParseFile("_examples/DO_NOT_CHANGE_TESTS_DEPEND_ON_IT/01_my_stations.xml"))
+	fmt.Println(helper.ParseYamahaXMLFile("_examples/DO_NOT_CHANGE_TESTS_DEPEND_ON_IT/01_my_stations.xml"))
 }
 
 func TestParseSuccessOfSubdirXYZ(t *testing.T) {
-	fmt.Println(helper.ParseFile("_examples/DO_NOT_CHANGE_TESTS_DEPEND_ON_IT/02_my_stations-GROUPNAME.xml"))
+	fmt.Println(helper.ParseYamahaXMLFile("_examples/DO_NOT_CHANGE_TESTS_DEPEND_ON_IT/02_my_stations-GROUPNAME.xml"))
+}
+
+func TestXMLSerializationAndParsing(t *testing.T) {
+	chill := model_yamaha.StationsList{}
+	chill.Items = []model_yamaha.Item{ //make([]model_yamaha.Item, 0)
+		model_yamaha.Item{
+			ItemType:     "Dir",
+			Title:        "Radiobrowser",
+			UrlDir:       "http://192.168.178.61/ycast/radiobrowser/?vtuner=true",
+			UrlDirBackUp: "http://192.168.178.61/ycast/radiobrowser/?vtuner=true",
+			DirCount:     4,
+		},
+		model_yamaha.Item{
+			ItemType:     "Dir",
+			Title:        "My Stations",
+			UrlDir:       "http://192.168.178.61/ycast/my_stations/?vtuner=true",
+			UrlDirBackUp: "http://192.168.178.61/ycast/my_stations/?vtuner=true",
+			DirCount:     4,
+		},
+	}
+
+	res, _ := helper.XMLHelper{}.Marshal(chill)
+	fmt.Println(string(res))
+}
+
+func TestYamlSerializationAndParsing(t *testing.T) {
+	myStations := model.MyStationDirectories{
+		map[string]model.Subdirectory{
+			"Chill": model.Subdirectory{
+				Name: "Chill",
+				Stations: []model.StationInfo{
+					{StationName: "111", StationURL: "222", IconURL: "333"},
+					{StationName: "444", StationURL: "555", IconURL: "666"},
+				},
+			},
+			"Jungletrain*s!": model.Subdirectory{
+				Name: "Jungletrain*s:",
+				Stations: []model.StationInfo{
+					{StationName: "123", StationURL: "456", IconURL: "789"},
+					{StationName: "987", StationURL: "654", IconURL: "321"},
+				},
+			},
+		},
+	}
+	res, _ := helper.YamlHelper{}.Marshal(myStations)
+	fmt.Println(string(res))
 }
 
 func TestRootHandler(t *testing.T) {
 	rec := httptest.NewRecorder()
 
 	// setup mock data
-	model.Root = model.ListOfItems{
+	model_yamaha.YamahaRoot = model_yamaha.RootList(model_yamaha.ListOfItems{
 		ItemCount: -1, // looks like to be some kind of default for root folder
-		Items: []model.Item{
-			model.Item{
+		Items: []model_yamaha.Item{
+			model_yamaha.Item{
 				ItemType:     "Dir",
 				Title:        "Radiobrowser",
 				UrlDir:       "http://192.168.178.61/ycast/radiobrowser/?vtuner=true",
 				UrlDirBackUp: "http://192.168.178.61/ycast/radiobrowser/?vtuner=true",
 				DirCount:     4,
 			},
-			model.Item{
+			model_yamaha.Item{
 				ItemType:     "Dir",
 				Title:        "My Stations",
 				UrlDir:       "http://192.168.178.61/ycast/my_stations/?vtuner=true",
@@ -46,10 +94,10 @@ func TestRootHandler(t *testing.T) {
 				DirCount:     4,
 			},
 		},
-	}
+	})
 
 	// INVOKE !
-	handler.RootHandler(rec, nil)
+	handler.RootHandler(rec, &http.Request{})
 
 	// read expected data
 	xmlFile, err := os.Open("_examples/DO_NOT_CHANGE_TESTS_DEPEND_ON_IT/00_root.xml")
@@ -58,12 +106,12 @@ func TestRootHandler(t *testing.T) {
 	}
 	defer xmlFile.Close()
 	expectedContect, _ := ioutil.ReadAll(xmlFile)
-	var listOfItemsExpected model.ListOfItems
+	var listOfItemsExpected model_yamaha.ListOfItems
 	xml.Unmarshal(expectedContect, &listOfItemsExpected)
 
 	// read response and marshll
 	responseBytes, _ := ioutil.ReadAll(rec.Body)
-	var listOfItemsInResponse model.ListOfItems
+	var listOfItemsInResponse model_yamaha.ListOfItems
 	xml.Unmarshal(responseBytes, &listOfItemsInResponse)
 
 	if listOfItemsExpected.ItemCount != listOfItemsInResponse.ItemCount {

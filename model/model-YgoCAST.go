@@ -12,5 +12,13 @@ type Subdirectory struct {
 }
 
 type MyStationDirectories struct {
-	SubDirectories []Subdirectory `yaml:"my_stations" json:"my_stations"`
+	SubDirectories map[string]Subdirectory `yaml:"my_stations" json:"my_stations"`
+}
+
+func (msd MyStationDirectories) SubDirectoriesAsList() []Subdirectory {
+	result := make([]Subdirectory, 0, len(msd.SubDirectories))
+	for _, v := range msd.SubDirectories {
+		result = append(result, v)
+	}
+	return result
 }

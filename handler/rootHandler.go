@@ -9,13 +9,13 @@ import (
 	"os"
 	"strings"
 	"time"
-	"ygost/model"
+	"ygost/model_yamaha"
 )
 
 func RootHandler(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("RootHandler", request.RequestURI)
 
-	result, err := xml.Marshal(model.Root)
+	result, err := xml.Marshal(model_yamaha.YamahaRoot)
 	if err != nil {
 		fmt.Println("cannot marshall")
 	}
@@ -47,7 +47,7 @@ func SetupHandlerLogin(writer http.ResponseWriter, request *http.Request) {
 	//  * /setupapp/Yamaha/asp/BrowseXML/loginXML.asp?token=0
 	//    --> simply respond with a token (even a dummy) <EncryptedToken>0000000000000000</EncryptedToken>
 	//  * /setupapp/Yamaha/asp/BrowseXML/loginXML.asp?mac=e3629f8b2113402738c4d17f406793dc&dlang=eng&fver=W&start=1&howmany=8
-	//    --> simply respond with Root
+	//    --> simply respond with YamahaRoot
 	if strings.Contains(request.RequestURI, "token=0") {
 		fmt.Println("  --> Sending EncryptedToken")
 		writer.Write([]byte("<EncryptedToken>0000000000000000</EncryptedToken>"))

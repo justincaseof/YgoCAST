@@ -1,20 +1,17 @@
 my_stations:
-  - name: "Chillout"
+  Chillout:
+    name: "Chillout"
     stations:
-      - stationname: station11
-        stationurl: station11URL
-        iconurl: icon11URL
+      - stationname: Joint Radio
+        stationurl: http://radio.jointil.net:9998
       - stationname: station12
         stationurl: station12URL
-        iconurl: icon12URL
-  - name: Jungletrain*s
+  Jungletrain*s:
+    name: Jungletrain*s
     stations:
       - stationname: Jungletrain#1
         stationurl: http://stream1.jungletrain.net:8000/
-        iconurl: icon21URL
       - stationname: Jungletrain#2
-        stationurl: station12URL
-        iconurl: http://stream6.jungletrain.net:8000/
+        stationurl: http://stream6.jungletrain.net:8000/
       - stationname: Jungletrain#3
         stationurl: http://stream5.jungletrain.net:8000/
-        iconurl: ""

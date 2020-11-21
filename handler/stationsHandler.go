@@ -6,18 +6,18 @@ import (
 	"net/http"
 	"regexp"
 	"time"
-	"ygost/model"
+	"ygost/model_yamaha"
 )
 
 func RadiobrowserHandler(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("RadiobrowserHandler")
 
 	//id := middleware.GenerateStationID()
-	dummy := model.ListOfItems{
+	dummy := model_yamaha.ListOfItems{
 		ItemCount: 1,
-		Items: []model.Item{
-			model.Item{
-				ItemType: model.Dir,
+		Items: []model_yamaha.Item{
+			model_yamaha.Item{
+				ItemType: model_yamaha.Dir,
 				//Title: id,
 				Title:        time.Now().Format("15:04:05") + "." + fmt.Sprintf("%d", time.Now().Nanosecond()),
 				UrlDir:       "http://192.168.178.61/ycast/radiobrowser/dummy", // FIXME: IP
@@ -53,14 +53,14 @@ func StationsHandler(writer http.ResponseWriter, request *http.Request) {
 	if directoryName == "" {
 		// we need to respond with our genres/directories
 		fmt.Println("  --> responding Directories")
-		result, err := xml.Marshal(model.MyStations)
+		result, err := xml.Marshal(model_yamaha.YamahaMyStations)
 		if err != nil {
 			fmt.Println("cannot marshall")
 		}
 		writer.Write(result)
 	} else {
 		fmt.Println("  --> responding Stations of Directory ", directoryName)
-		subdirList := model.MyStationsDirNameToListOfItemsMapping[directoryName]
+		subdirList := model_yamaha.MyStationsDirNameToListOfItemsMapping[directoryName]
 		subdirList.ItemCount = int32(len(subdirList.Items)) // update, just in case
 
 		result, err := xml.Marshal(subdirList)
@@ -72,11 +72,11 @@ func StationsHandler(writer http.ResponseWriter, request *http.Request) {
 
 }
 
-func SingleStationById(id string) model.ListOfItems {
-	result := model.ListOfItems{
+func SingleStationById(id string) model_yamaha.ListOfItems {
+	result := model_yamaha.ListOfItems{
 		ItemCount: 1,
-		Items: []model.Item{
-			model.StationIDtoStationMapping[id],
+		Items: []model_yamaha.Item{
+			model_yamaha.Item(model_yamaha.StationIDtoStationMapping[id]),
 		},
 	}
 	return result
