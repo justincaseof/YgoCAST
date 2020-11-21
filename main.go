@@ -24,16 +24,16 @@ func loadData() {
 	//Path := "/"
 
 	// ### ROOT
-	model.Root = helper.ParseFile("_examples/dev/00_root.xml")
+	model.Root = helper.ParseYamahaXMLFile("_examples/dev/00_root.xml")
 
 	// ### MYSTATIONS
-	model.MyStations = helper.ParseFile("_examples/dev/01-01_my_stations.xml")
+	model.MyStations = helper.ParseYamahaXMLFile("_examples/dev/01-01_my_stations.xml")
 
 	// ### My-Stations Folders
-	Jungletrain := helper.ParseFile("_examples/dev/02-00_my_stations-Jungletrain.xml")
-	Electronic := helper.ParseFile("_examples/dev/02-01_my_stations-Electronic.xml")
-	Chillout := helper.ParseFile("_examples/dev/02-02_my_stations-Chillout.xml")
-	IntergalacticFM := helper.ParseFile("_examples/dev/02-03_my_stations-IntergalacticFM.xml")
+	Jungletrain := helper.ParseYamahaXMLFile("_examples/dev/02-00_my_stations-Jungletrain.xml")
+	Electronic := helper.ParseYamahaXMLFile("_examples/dev/02-01_my_stations-Electronic.xml")
+	Chillout := helper.ParseYamahaXMLFile("_examples/dev/02-02_my_stations-Chillout.xml")
+	IntergalacticFM := helper.ParseYamahaXMLFile("_examples/dev/02-03_my_stations-IntergalacticFM.xml")
 	model.MyStationsDirNameToListOfItemsMapping = make(map[string]model.ListOfItems)
 	model.MyStationsDirNameToListOfItemsMapping["Jungletrain"] = Jungletrain
 	model.MyStationsDirNameToListOfItemsMapping["Electronic"] = Electronic
@@ -49,6 +49,16 @@ func loadData() {
 		}
 	}
 
+	// test
+	loadStations()
+}
+
+// test
+func loadStations() {
+	stationsYaml := helper.ParseYaml("_examples/my_stations.yaml")
+	stationsJson := helper.ParseJSON("_examples/my_stations.json")
+	fmt.Println(stationsYaml)
+	fmt.Println(stationsJson)
 }
 
 func startServer() {

@@ -1,0 +1,39 @@
+{
+  "my_stations": [
+    {
+      "Name": "genre1",
+      "Stations": [
+        {
+          "StationName": "station11",
+          "StationURL": "station11URL",
+          "IconURL": "icon11URL"
+        },
+        {
+          "StationName": "station12",
+          "StationURL": "station12URL",
+          "IconURL": "icon12URL"
+        }
+      ]
+    },
+    {
+      "Name": "genre2",
+      "Stations": [
+        {
+          "StationName": "station21",
+          "StationURL": "station11URL",
+          "IconURL": "icon21URL"
+        },
+        {
+          "StationName": "station22",
+          "StationURL": "station12URL",
+          "IconURL": "icon22URL"
+        },
+        {
+          "StationName": "station22",
+          "StationURL": "station12URL",
+          "IconURL": ""
+        }
+      ]
+    }
+  ]
+}

@@ -3,6 +3,7 @@ package middleware
 import (
 	"context"
 	"fmt"
+	"hash/crc64"
 	"math/rand"
 	"net/http"
 	"regexp"
@@ -14,6 +15,13 @@ func GenerateStationID() string {
 	var id uint64 = rand.Uint64()
 	res := fmt.Sprintf("%02x", id)
 	return res
+}
+
+func CalculateStationID(val string) string {
+	table := crc64.MakeTable(crc64.ISO)
+	crc := crc64.Checksum([]byte(val), table)
+	fmt.Printf("CRC64 of '%s': \n\t0x%08x\n", val, crc)
+	return fmt.Sprintf("%08x", crc)
 }
 
 func MACAddressMiddleware(next http.Handler) http.Handler {
