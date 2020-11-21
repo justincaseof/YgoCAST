@@ -1,5 +1,7 @@
 package model
 
+import "ygost/middleware"
+
 type StationInfo struct {
 	StationName string
 	StationURL  string
@@ -23,4 +25,10 @@ func (msd MyStationDirectories) SubDirectoriesAsList() []Subdirectory {
 	return result
 }
 
+func (si *StationInfo) GenerateStationID(subDirName string) string {
+	// FIXME for now, we simply hash the station's name.
+	return middleware.CalculateStationID(subDirName + "/" + si.StationName)
+}
+
 var STATIONS MyStationDirectories
+var STATIONS_BY_ID map[string]*StationInfo

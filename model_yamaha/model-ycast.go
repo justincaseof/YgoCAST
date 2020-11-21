@@ -58,9 +58,6 @@ type StationItem Item                 // an Item with ItemType=Station
 // ### Globally usabe vars
 var YamahaRoot RootList
 
-var MyStationsDirNameToListOfItemsMapping map[string]StationsList
-var StationIDtoStationMapping map[string]StationItem
-
 func (myStationDirectories StationDirectoryList) MarshalToXML() []byte {
 	bytes, _ := xml.Marshal(myStationDirectories)
 	return bytes
@@ -103,6 +100,7 @@ func (subDirItem DirectoryItem) Encode(subDir model.Subdirectory) DirectoryItem 
 }
 func (stationItem StationItem) Encode(subDirName string, station model.StationInfo) StationItem {
 	stationItem.ItemType = Station
+	stationItem.StationId = station.GenerateStationID(subDirName)
 	stationItem.Title = station.StationName
 	stationItem.StationFormat = subDirName
 	stationItem.StationDesc = subDirName

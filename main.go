@@ -27,46 +27,25 @@ func loadData() {
 	// ### ROOT --> still static
 	model_yamaha.YamahaRoot = helper.ParseYamahaXMLFile("_examples/dev/00_root.xml")
 
-	// ### MYSTATIONS
-	//model.YamahaMyStations = helper.ParseYamahaXMLFile("_examples/dev/01-01_my_stations.xml")
-
-	// ### My-Stations Folders
-	//Jungletrain := helper.ParseYamahaXMLFile("_examples/dev/02-00_my_stations-Jungletrain.xml")
-	//Electronic := helper.ParseYamahaXMLFile("_examples/dev/02-01_my_stations-Electronic.xml")
-	//Chillout := helper.ParseYamahaXMLFile("_examples/dev/02-02_my_stations-Chillout.xml")
-	//IntergalacticFM := helper.ParseYamahaXMLFile("_examples/dev/02-03_my_stations-IntergalacticFM.xml")
-	//model.MyStationsDirNameToListOfItemsMapping = make(map[string]model.ListOfItems)
-	//model.MyStationsDirNameToListOfItemsMapping["Jungletrain"] = Jungletrain
-	//model.MyStationsDirNameToListOfItemsMapping["Electronic"] = Electronic
-	//model.MyStationsDirNameToListOfItemsMapping["Chillout"] = Chillout
-	//model.MyStationsDirNameToListOfItemsMapping["IntergalacticFM"] = IntergalacticFM
-
-	// ===== MAPPING STUFF =====
-	// generade IDs and fill hashtable for lookup
-	model_yamaha.StationIDtoStationMapping = make(map[string]model_yamaha.StationItem)
-	for _, listOfItems := range model_yamaha.MyStationsDirNameToListOfItemsMapping {
-		for _, item := range listOfItems.Items {
-			model_yamaha.StationIDtoStationMapping[item.StationId] = model_yamaha.StationItem(item)
-		}
-	}
-
-	// test
 	loadStations()
 }
 
-// test
+// our source is a yaml file.
 func loadStations() {
 	model.STATIONS = helper.ParseYaml("_examples/my_stations.yaml")
-	stationsJson := helper.ParseJSON("_examples/my_stations.json")
-	fmt.Println(model.STATIONS)
-	fmt.Println(stationsJson)
 
-	//var stationsOfDir model_yamaha.StationsList
-	//for key, val := range STATIONS_YAML.SubDirectories {
-	//	stationsOfDir.Encode(key, val.Stations)
-	//}
-
-	fmt.Println("")
+	model.STATIONS_BY_ID = make(map[string]*model.StationInfo)
+	// populate ids
+	for _, dir := range model.STATIONS.SubDirectoriesAsList() {
+		for _, sta := range dir.Stations {
+			id := sta.GenerateStationID(dir.Name)
+			if model.STATIONS_BY_ID[id] == nil {
+				model.STATIONS_BY_ID[sta.GenerateStationID(dir.Name)] = &sta
+			} else {
+				panic("duplicate station names: " + sta.StationName)
+			}
+		}
+	}
 }
 
 func startServer() {

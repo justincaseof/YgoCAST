@@ -71,24 +71,13 @@ func StationsHandler(writer http.ResponseWriter, request *http.Request) {
 }
 
 func SingleStationById(id string) model_yamaha.ListOfItems {
+	station := model_yamaha.StationItem{}
+	station.Encode("FIXME", *model.STATIONS_BY_ID[id])
 	result := model_yamaha.ListOfItems{
 		ItemCount: 1,
 		Items: []model_yamaha.Item{
-			model_yamaha.Item(model_yamaha.StationIDtoStationMapping[id]),
+			model_yamaha.Item(station),
 		},
 	}
 	return result
-	//return model.ListOfItems{
-	//	ItemCount: 1,
-	//	Items: []model.Item{
-	//		{
-	//			ItemType:      model.Station,
-	//			StationId:     id,
-	//			StationName:   "dummy FooBar",
-	//			StationUrl:    "http://ice1.somafm.com/dronezone-256-mp3",
-	//			StationDesc:   "Chillout",
-	//			StationFormat: "Chillout",
-	//			Logo:          "http://192.168.178.61/ycast/logo?id=MY_B08E60982371",
-	//		},
-	//	},
 }
