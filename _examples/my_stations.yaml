@@ -4,14 +4,41 @@ my_stations:
     stations:
       - stationname: Joint Radio
         stationurl: http://radio.jointil.net:9998
-      - stationname: station12
-        stationurl: station12URL
+      - stationname: SomaFM DEF CON Radio
+        stationurl: http://ice1.somafm.com/defcon-256-mp3
+      - stationname: SomaFM Drone Zone
+        stationurl: http://ice1.somafm.com/dronezone-256-mp3
+      - stationname: SomaFM Mission Control
+        stationurl: http://ice1.somafm.com/missioncontrol-128-mp3
   Jungletrain*s:
     name: Jungletrain*s
     stations:
-      - stationname: Jungletrain#1
-        stationurl: http://stream1.jungletrain.net:8000/
-      - stationname: Jungletrain#2
-        stationurl: http://stream6.jungletrain.net:8000/
-      - stationname: Jungletrain#3
-        stationurl: http://stream5.jungletrain.net:8000/
+      - stationname: SomaFM DEF CON Radio
+        stationurl: http://ice1.somafm.com/defcon-256-mp3
+      - stationname: SomaFM Drone Zone
+        stationurl: http://ice1.somafm.com/dronezone-256-mp3
+      - stationname: SomaFM Mission Control
+        stationurl: http://ice1.somafm.com/missioncontrol-128-mp3
+  IntergalacticFM*:
+    name: IntergalacticFM*
+    stations:
+      - stationname: Disco Fetish
+        stationurl: http://radio.intergalactic.fm:80/2
+      - stationname: CBS
+        stationurl: http://radio.intergalactic.fm:80/1
+      - stationname: DreamMachine
+        stationurl: http://radio.intergalactic.fm:80/3
+  Electronic:
+    name: Electronic
+    stations:
+      - stationname: Deep House Lounge
+        stationurl: http://198.15.94.34:8006
+      - stationname: Ibiza Sonica
+        stationurl: http://s1.sonicabroadcast.com:7005/stream
+      - stationname: Bassdrive
+        stationurl: http://50.7.98.106:8200
+      - stationname: SomaFM Fluid
+        stationurl: http://ice1.somafm.com/fluid-128-mp3
+
+
+
