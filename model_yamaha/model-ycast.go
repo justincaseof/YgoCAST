@@ -30,11 +30,11 @@ type Item struct {
 	StationDesc      string `xml:"StationDesc,omitempty"`
 	Logo             string `xml:"Logo,omitempty"`
 	StationFormat    string `xml:"StationFormat,omitempty"`
-	StationLocation  string `xml:"StationLocation"`
-	StationBandWidth string `xml:"StationBandWidth"`
-	StationMime      string `xml:"StationMime"`
+	StationLocation  string `xml:"StationLocation,omitempty"`
+	StationBandWidth string `xml:"StationBandWidth,omitempty"`
+	StationMime      string `xml:"StationMime,omitempty"`
 	Relia            string `xml:"Relia,omitempty"`
-	Bookmark         string `xml:"Bookmark"`
+	Bookmark         string `xml:"Bookmark,omitempty"`
 
 	// ItemType="Display"
 	Display string `xml:"Display,omitempty"`
@@ -56,7 +56,7 @@ type StationsList ListOfItems         // single stations of a directory/genre
 type DirectoryItem Item               // an Item with ItemType=Dir
 type StationItem Item                 // an Item with ItemType=Station
 
-// ### Globally usabe vars
+// ### Globally usable vars
 var YamahaRoot RootList
 
 func (myStationDirectories StationDirectoryList) MarshalToXML() []byte {
@@ -86,6 +86,7 @@ func (stationList StationsList) Encode(dirname string, stations []model.StationI
 	}
 	// Stations
 	for _, station := range stations {
+		station.ParentDirName = dirname
 		los.Items = append(los.Items, Item((&StationItem{}).Encode(station, baseUrl)))
 	}
 	stationList.Items = los.Items
@@ -113,5 +114,9 @@ func (stationItem StationItem) Encode(station model.StationInfo, baseUrl string)
 	}
 	stationItem.Logo = baseUrl + "icon?station_id=" + stationItem.StationId
 	stationItem.Relia = "3"
+	stationItem.StationLocation = " "
+	stationItem.StationBandWidth = " "
+	stationItem.StationMime = " "
+	stationItem.Bookmark = " "
 	return stationItem
 }

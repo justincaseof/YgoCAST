@@ -57,7 +57,9 @@ func startServer() {
 	//mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/statxml.asp", handler.SetupHandlerStat)
 	mux.Handle("/setupapp/Yamaha/asp/BrowseXML/statxml.asp", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.SetupHandlerStat)))
 
-	mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/loginXML.asp", handler.SetupHandlerLogin)
+	//mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/loginXML.asp", handler.SetupHandlerLogin)
+	mux.Handle("/setupapp/Yamaha/asp/BrowseXML/loginXML.asp", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.SetupHandlerLogin)))
+
 	mux.Handle("/ycast/my_stations/", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.StationsHandler)))
 	mux.Handle("/ycast/radiobrowser/", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.RadiobrowserHandler)))
 	mux.Handle("/ycast", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.RootHandler)))

@@ -28,7 +28,7 @@ func (msd MyStationDirectories) SubDirectoriesAsList() []Subdirectory {
 
 func (si *StationInfo) GenerateStationID(subDirName string) string {
 	// FIXME for now, we simply hash the station's name.
-	return middleware.CalculateStationID(subDirName + "/" + si.StationName)
+	return "MY_"+middleware.CalculateStationID(subDirName + "/" + si.StationName)
 }
 
 var STATIONS MyStationDirectories
