@@ -21,13 +21,11 @@ func main() {
 }
 
 func loadData() {
-	//IP := "192.168.178.61"
-	//Path := "/"
-
 	// ### ROOT --> still static
 	model_yamaha.YamahaRoot = helper.ParseYamahaXMLFile("_examples/dev/00_root.xml")
 
 	loadStations()
+
 }
 
 // our source is a yaml file.
@@ -54,7 +52,10 @@ func startServer() {
 	mux := &http.ServeMux{}
 	mux.HandleFunc("/ycast/icon", handler.IconHandler)
 	mux.HandleFunc("/icon", handler.IconHandler)
-	mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/statxml.asp", handler.SetupHandlerStat)
+
+	//mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/statxml.asp", handler.SetupHandlerStat)
+	mux.Handle("/setupapp/Yamaha/asp/BrowseXML/statxml.asp", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.SetupHandlerStat)))
+
 	mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/loginXML.asp", handler.SetupHandlerLogin)
 	mux.Handle("/ycast/my_stations/", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.StationsHandler)))
 	mux.Handle("/ycast/radiobrowser/", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.RadiobrowserHandler)))

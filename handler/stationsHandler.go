@@ -70,14 +70,22 @@ func StationsHandler(writer http.ResponseWriter, request *http.Request) {
 
 }
 
-func SingleStationById(id string) model_yamaha.ListOfItems {
+func SingleStationById(id string) model_yamaha.StationsList {
 	station := model_yamaha.StationItem{}
-	station.Encode("FIXME", *model.STATIONS_BY_ID[id])
-	result := model_yamaha.ListOfItems{
-		ItemCount: 1,
-		Items: []model_yamaha.Item{
-			model_yamaha.Item(station),
-		},
+	stationInfo := model.STATIONS_BY_ID[id]
+
+	if stationInfo != nil {
+		station = station.Encode("FIXME", *stationInfo)
+		result := model_yamaha.StationsList{
+			ItemCount: 1,
+			Items: []model_yamaha.Item{
+				model_yamaha.Item(station),
+			},
+		}
+		return result
 	}
-	return result
+	return model_yamaha.StationsList{
+		ItemCount: 0,
+		Items:     []model_yamaha.Item{},
+	}
 }
