@@ -2,6 +2,7 @@ package model_yamaha
 
 import (
 	"encoding/xml"
+	"strings"
 	"ygost/model"
 )
 
@@ -67,45 +68,49 @@ func (myStations StationsList) MarshalToXML() []byte {
 	return bytes
 }
 
-func (myStationDirectories StationDirectoryList) Encode(directories []model.Subdirectory) StationDirectoryList {
+func (myStationDirectories StationDirectoryList) Encode(directories []model.Subdirectory, requestUrl string) StationDirectoryList {
 	loi := StationDirectoryList{
 		Items: make([]Item, 0),
 	}
 	// SubDirectories
 	for _, v := range directories {
-		loi.Items = append(loi.Items, Item((&DirectoryItem{}).Encode(v)))
+		loi.Items = append(loi.Items, Item((&DirectoryItem{}).Encode(v, requestUrl)))
 	}
 	myStationDirectories.Items = loi.Items
 	myStationDirectories.ItemCount = int32(len(loi.Items))
 	return myStationDirectories
 }
-func (stationList StationsList) Encode(dirname string, stations []model.StationInfo) StationsList {
+func (stationList StationsList) Encode(dirname string, stations []model.StationInfo, baseUrl string) StationsList {
 	los := StationsList{
 		Items: make([]Item, 0),
 	}
 	// Stations
 	for _, station := range stations {
-		los.Items = append(los.Items, Item((&StationItem{}).Encode(dirname, station)))
+		los.Items = append(los.Items, Item((&StationItem{}).Encode(station, baseUrl)))
 	}
 	stationList.Items = los.Items
 	stationList.ItemCount = int32(len(los.Items))
 	return stationList
 }
 
-func (subDirItem DirectoryItem) Encode(subDir model.Subdirectory) DirectoryItem {
+func (subDirItem DirectoryItem) Encode(subDir model.Subdirectory, baseUrl string) DirectoryItem {
 	subDirItem.ItemType = Dir
 	subDirItem.Title = subDir.Name
-	subDirItem.UrlDir = "TODO"
+	subDirItem.UrlDir = baseUrl + subDir.Name
+	subDirItem.UrlDirBackUp = subDirItem.UrlDir
+	subDirItem.DirCount = int32(len(subDir.Stations))
 	return subDirItem
 }
-func (stationItem StationItem) Encode(subDirName string, station model.StationInfo) StationItem {
+func (stationItem StationItem) Encode(station model.StationInfo, baseUrl string) StationItem {
 	stationItem.ItemType = Station
-	stationItem.StationId = station.GenerateStationID(subDirName)
+	stationItem.StationId = station.GenerateStationID(station.ParentDirName + "/" + station.StationName)
 	stationItem.Title = station.StationName
-	stationItem.StationFormat = subDirName
-	stationItem.StationDesc = subDirName
+	stationItem.StationFormat = station.ParentDirName
+	stationItem.StationDesc = station.ParentDirName
 	stationItem.UrlDir = station.StationURL
-	//stationItem.Logo = station.IconURL
-	stationItem.Logo = "http://192.168.178.61/ycast/icon?foo=bar"
+	if !strings.HasSuffix(baseUrl, "/") {
+		baseUrl = baseUrl + "/"
+	}
+	stationItem.Logo = baseUrl + "icon?station_id=" + stationItem.StationId
 	return stationItem
 }

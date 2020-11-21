@@ -3,9 +3,10 @@ package model
 import "ygost/middleware"
 
 type StationInfo struct {
-	StationName string
-	StationURL  string
-	IconURL     string // optional
+	StationName   string
+	StationURL    string
+	IconURL       string `yaml:"iconURL,omitempty"`
+	ParentDirName string `yaml:"-"`
 }
 
 type Subdirectory struct {

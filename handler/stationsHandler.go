@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"regexp"
+	"strings"
 	"time"
 	"ygost/model"
 	"ygost/model_yamaha"
@@ -55,27 +56,30 @@ func StationsHandler(writer http.ResponseWriter, request *http.Request) {
 		// we need to respond with our genres/directories
 		fmt.Println("  --> responding Directories")
 
+		uriWithoutArgs := strings.Split(request.RequestURI, "?")[0]
+		baseUrl := "http://" + request.Host + uriWithoutArgs
 		result := model_yamaha.StationDirectoryList{}
-		result = result.Encode(model.STATIONS.SubDirectoriesAsList())
+		result = result.Encode(model.STATIONS.SubDirectoriesAsList(), baseUrl)
 
 		writer.Write(result.MarshalToXML())
 	} else {
 		fmt.Println("  --> responding Stations of Directory ", directoryName)
 
+		baseUrl := "http://" + request.Host + "/ycast/" // FIXME -->config
 		result := model_yamaha.StationsList{}
-		result = result.Encode(directoryName, model.STATIONS.SubDirectories[directoryName].Stations)
+		result = result.Encode(directoryName, model.STATIONS.SubDirectories[directoryName].Stations, baseUrl)
 
 		writer.Write(result.MarshalToXML())
 	}
 
 }
 
-func SingleStationById(id string) model_yamaha.StationsList {
+func SingleStationById(id string, baseUrl string) model_yamaha.StationsList {
 	station := model_yamaha.StationItem{}
 	stationInfo := model.STATIONS_BY_ID[id]
 
 	if stationInfo != nil {
-		station = station.Encode("FIXME", *stationInfo)
+		station = station.Encode(*stationInfo, baseUrl)
 		result := model_yamaha.StationsList{
 			ItemCount: 1,
 			Items: []model_yamaha.Item{

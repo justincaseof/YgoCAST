@@ -33,11 +33,12 @@ func loadStations() {
 	model.STATIONS = helper.ParseYaml("_examples/my_stations.yaml")
 
 	model.STATIONS_BY_ID = make(map[string]*model.StationInfo)
-	// populate ids
+	// populate ids and parent dirs
 	for _, dir := range model.STATIONS.SubDirectoriesAsList() {
 		for _, sta := range dir.Stations {
 			id := sta.GenerateStationID(dir.Name)
 			if model.STATIONS_BY_ID[id] == nil {
+				sta.ParentDirName = dir.Name
 				model.STATIONS_BY_ID[sta.GenerateStationID(dir.Name)] = &sta
 			} else {
 				panic("duplicate station names: " + sta.StationName)

@@ -30,7 +30,9 @@ func SetupHandlerStat(writer http.ResponseWriter, request *http.Request) {
 	//  * /setupapp/Yamaha/asp/BrowseXML/statxml.asp?mac=e3629f8b2113402738c4d17f406793dc&fver=W&id=MY_B08E60982371
 	//    --> simply respond with the station of given ID
 
-	writer.Write(SingleStationById(fmt.Sprintf("%s", stationId)).MarshalToXML())
+	baseUrl := "http://" + request.Host + "/ycast/" // FIXME -->config
+
+	writer.Write(SingleStationById(fmt.Sprintf("%s", stationId), baseUrl).MarshalToXML())
 }
 
 func SetupHandlerLogin(writer http.ResponseWriter, request *http.Request) {
