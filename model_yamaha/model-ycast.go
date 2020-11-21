@@ -30,11 +30,11 @@ type Item struct {
 	StationDesc      string `xml:"StationDesc,omitempty"`
 	Logo             string `xml:"Logo,omitempty"`
 	StationFormat    string `xml:"StationFormat,omitempty"`
-	StationLocation  string `xml:"StationLocation,omitempty"`
-	StationBandWidth string `xml:"StationBandWidth,omitempty"`
-	StationMime      string `xml:"StationMime,omitempty"`
+	StationLocation  string `xml:"StationLocation"`
+	StationBandWidth string `xml:"StationBandWidth"`
+	StationMime      string `xml:"StationMime"`
 	Relia            string `xml:"Relia,omitempty"`
-	Bookmark         string `xml:"Bookmark,omitempty"`
+	Bookmark         string `xml:"Bookmark"`
 
 	// ItemType="Display"
 	Display string `xml:"Display,omitempty"`
@@ -96,7 +96,7 @@ func (stationList StationsList) Encode(dirname string, stations []model.StationI
 func (subDirItem DirectoryItem) Encode(subDir model.Subdirectory, baseUrl string) DirectoryItem {
 	subDirItem.ItemType = Dir
 	subDirItem.Title = subDir.Name
-	subDirItem.UrlDir = baseUrl + subDir.Name
+	subDirItem.UrlDir = baseUrl + subDir.Name + "?vtuner=true" // FIXME yikes!
 	subDirItem.UrlDirBackUp = subDirItem.UrlDir
 	subDirItem.DirCount = int32(len(subDir.Stations))
 	return subDirItem
@@ -104,13 +104,14 @@ func (subDirItem DirectoryItem) Encode(subDir model.Subdirectory, baseUrl string
 func (stationItem StationItem) Encode(station model.StationInfo, baseUrl string) StationItem {
 	stationItem.ItemType = Station
 	stationItem.StationId = station.GenerateStationID(station.ParentDirName + "/" + station.StationName)
-	stationItem.Title = station.StationName
+	stationItem.StationName = station.StationName
 	stationItem.StationFormat = station.ParentDirName
 	stationItem.StationDesc = station.ParentDirName
-	stationItem.UrlDir = station.StationURL
+	stationItem.StationUrl = station.StationURL
 	if !strings.HasSuffix(baseUrl, "/") {
 		baseUrl = baseUrl + "/"
 	}
 	stationItem.Logo = baseUrl + "icon?station_id=" + stationItem.StationId
+	stationItem.Relia = "3"
 	return stationItem
 }

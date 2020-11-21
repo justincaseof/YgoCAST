@@ -1,6 +1,6 @@
 my_stations:
   Chillout:
-    name: "Chillout"
+    name: Chillout
     stations:
       - stationname: Joint Radio
         stationurl: http://radio.jointil.net:9998
@@ -10,8 +10,8 @@ my_stations:
         stationurl: http://ice1.somafm.com/dronezone-256-mp3
       - stationname: SomaFM Mission Control
         stationurl: http://ice1.somafm.com/missioncontrol-128-mp3
-  Jungletrain*s:
-    name: Jungletrain*s
+  Jungletrains:
+    name: Jungletrains
     stations:
       - stationname: SomaFM DEF CON Radio
         stationurl: http://ice1.somafm.com/defcon-256-mp3
@@ -19,8 +19,8 @@ my_stations:
         stationurl: http://ice1.somafm.com/dronezone-256-mp3
       - stationname: SomaFM Mission Control
         stationurl: http://ice1.somafm.com/missioncontrol-128-mp3
-  IntergalacticFM*:
-    name: IntergalacticFM*
+  IntergalacticFM:
+    name: IntergalacticFM
     stations:
       - stationname: Disco Fetish
         stationurl: http://radio.intergalactic.fm:80/2
@@ -39,6 +39,3 @@ my_stations:
         stationurl: http://50.7.98.106:8200
       - stationname: SomaFM Fluid
         stationurl: http://ice1.somafm.com/fluid-128-mp3
-
-
-
