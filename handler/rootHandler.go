@@ -4,9 +4,11 @@ import (
 	"encoding/xml"
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"net/http"
 	"os"
 	"strings"
+	"time"
 	"ygost/model"
 )
 
@@ -58,7 +60,16 @@ func SetupHandlerLogin(writer http.ResponseWriter, request *http.Request) {
 func IconHandler(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("IconHandler")
 
-	iconFile, err := os.Open("_examples/icon.jpeg")
+	fileNames := []string{
+		"_examples/icons/icon1.jpeg",
+		"_examples/icons/icon2.jpeg",
+		"_examples/icons/icon3.jpeg",
+		"_examples/icons/icon4.jpeg",
+	}
+	rand.Seed(time.Now().UnixNano())
+	idx := rand.Uint64() % uint64(len(fileNames))
+
+	iconFile, err := os.Open(fileNames[idx])
 	// if we os.Open returns an error then handle it
 	if err != nil {
 		fmt.Println(err)
