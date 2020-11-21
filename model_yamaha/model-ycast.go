@@ -50,18 +50,27 @@ const (
 // ####################################
 
 type RootList ListOfItems             // the one and only
-type StationDirectoryList ListOfItems // directories/gernes
+type StationDirectoryList ListOfItems // directories/genres
 type StationsList ListOfItems         // single stations of a directory/genre
 type DirectoryItem Item               // an Item with ItemType=Dir
 type StationItem Item                 // an Item with ItemType=Station
 
+// ### Globally usabe vars
 var YamahaRoot RootList
-var YamahaMyStations StationDirectoryList
 
 var MyStationsDirNameToListOfItemsMapping map[string]StationsList
 var StationIDtoStationMapping map[string]StationItem
 
-func (myStationDirectories *StationDirectoryList) Encode(directories []model.Subdirectory) *StationDirectoryList {
+func (myStationDirectories StationDirectoryList) MarshalToXML() []byte {
+	bytes, _ := xml.Marshal(myStationDirectories)
+	return bytes
+}
+func (myStations StationsList) MarshalToXML() []byte {
+	bytes, _ := xml.Marshal(myStations)
+	return bytes
+}
+
+func (myStationDirectories StationDirectoryList) Encode(directories []model.Subdirectory) StationDirectoryList {
 	loi := StationDirectoryList{
 		Items: make([]Item, 0),
 	}
@@ -97,6 +106,8 @@ func (stationItem StationItem) Encode(subDirName string, station model.StationIn
 	stationItem.Title = station.StationName
 	stationItem.StationFormat = subDirName
 	stationItem.StationDesc = subDirName
-	stationItem.UrlDir = "TODO"
+	stationItem.UrlDir = station.StationURL
+	//stationItem.Logo = station.IconURL
+	stationItem.Logo = "http://192.168.178.61/ycast/icon?foo=bar"
 	return stationItem
 }

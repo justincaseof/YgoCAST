@@ -9,6 +9,7 @@ import (
 	"ygost/handler"
 	"ygost/helper"
 	"ygost/middleware"
+	"ygost/model"
 	"ygost/model_yamaha"
 )
 
@@ -23,8 +24,8 @@ func loadData() {
 	//IP := "192.168.178.61"
 	//Path := "/"
 
-	// ### ROOT
-	//model.YamahaRoot = helper.ParseYamahaXMLFile("_examples/dev/00_root.xml")
+	// ### ROOT --> still static
+	model_yamaha.YamahaRoot = helper.ParseYamahaXMLFile("_examples/dev/00_root.xml")
 
 	// ### MYSTATIONS
 	//model.YamahaMyStations = helper.ParseYamahaXMLFile("_examples/dev/01-01_my_stations.xml")
@@ -55,17 +56,15 @@ func loadData() {
 
 // test
 func loadStations() {
-	stationsYaml := helper.ParseYaml("_examples/my_stations.yaml")
+	model.STATIONS = helper.ParseYaml("_examples/my_stations.yaml")
 	stationsJson := helper.ParseJSON("_examples/my_stations.json")
-	fmt.Println(stationsYaml)
+	fmt.Println(model.STATIONS)
 	fmt.Println(stationsJson)
 
-	model_yamaha.YamahaMyStations.Encode(stationsYaml.SubDirectoriesAsList())
-
-	var stationsOfDir model_yamaha.StationsList
-	for key, val := range stationsYaml.SubDirectories {
-		stationsOfDir.Encode(key, val.Stations)
-	}
+	//var stationsOfDir model_yamaha.StationsList
+	//for key, val := range STATIONS_YAML.SubDirectories {
+	//	stationsOfDir.Encode(key, val.Stations)
+	//}
 
 	fmt.Println("")
 }

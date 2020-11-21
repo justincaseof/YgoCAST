@@ -2,6 +2,7 @@ package helper
 
 import (
 	"encoding/json"
+	"encoding/xml"
 	"fmt"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
@@ -39,10 +40,10 @@ type XMLHelper struct {
 }
 
 func (XMLHelper) Unmarshal(in []byte, out interface{}) (err error) {
-	return json.Unmarshal(in, out)
+	return xml.Unmarshal(in, out)
 }
 func (XMLHelper) Marshal(v interface{}) ([]byte, error) {
-	return json.Marshal(v)
+	return xml.Marshal(v)
 }
 
 func parse(name string, target interface{}, unmarshaller Helper) interface{} {
@@ -69,8 +70,8 @@ func ParseJSON(name string) model.MyStationDirectories {
 	parse(name, &myStations, JSONHelper{})
 	return myStations
 }
-func ParseYamahaXMLFile(name string) model_yamaha.ListOfItems {
-	var listOfItems model_yamaha.ListOfItems
+func ParseYamahaXMLFile(name string) model_yamaha.RootList {
+	var listOfItems model_yamaha.RootList
 	parse(name, &listOfItems, XMLHelper{})
 	return listOfItems
 }

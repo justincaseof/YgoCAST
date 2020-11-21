@@ -22,3 +22,5 @@ func (msd MyStationDirectories) SubDirectoriesAsList() []Subdirectory {
 	}
 	return result
 }
+
+var STATIONS MyStationDirectories

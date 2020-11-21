@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"regexp"
 	"time"
+	"ygost/model"
 	"ygost/model_yamaha"
 )
 
@@ -53,21 +54,18 @@ func StationsHandler(writer http.ResponseWriter, request *http.Request) {
 	if directoryName == "" {
 		// we need to respond with our genres/directories
 		fmt.Println("  --> responding Directories")
-		result, err := xml.Marshal(model_yamaha.YamahaMyStations)
-		if err != nil {
-			fmt.Println("cannot marshall")
-		}
-		writer.Write(result)
+
+		result := model_yamaha.StationDirectoryList{}
+		result = result.Encode(model.STATIONS.SubDirectoriesAsList())
+
+		writer.Write(result.MarshalToXML())
 	} else {
 		fmt.Println("  --> responding Stations of Directory ", directoryName)
-		subdirList := model_yamaha.MyStationsDirNameToListOfItemsMapping[directoryName]
-		subdirList.ItemCount = int32(len(subdirList.Items)) // update, just in case
 
-		result, err := xml.Marshal(subdirList)
-		if err != nil {
-			fmt.Println("cannot marshall")
-		}
-		writer.Write(result)
+		result := model_yamaha.StationsList{}
+		result = result.Encode(directoryName, model.STATIONS.SubDirectories[directoryName].Stations)
+
+		writer.Write(result.MarshalToXML())
 	}
 
 }
