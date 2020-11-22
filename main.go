@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"github.com/felixge/httpsnoop"
 	"log"
@@ -10,7 +11,6 @@ import (
 	"ygost/helper"
 	"ygost/middleware"
 	"ygost/model"
-	"ygost/model_yamaha"
 )
 
 func main() {
@@ -21,16 +21,17 @@ func main() {
 }
 
 func loadData() {
-	// ### ROOT --> still static
-	model_yamaha.YamahaRoot = helper.ParseYamahaXMLFile("_examples/dev/00_root.xml")
-
-	loadStations()
-
+	stationsFile := flag.String(
+		"stations",
+		"my_stations.yaml",
+		"e.g. -stations my_stations.yaml --> Path of a stations file (defaults to 'stations.yaml')")
+	flag.Parse()
+	loadStations(*stationsFile)
 }
 
 // our source is a yaml file.
-func loadStations() {
-	model.STATIONS = helper.ParseYaml("_examples/my_stations.yaml")
+func loadStations(fileName string) {
+	model.STATIONS = helper.ParseYaml(fileName)
 
 	model.STATIONS_BY_ID = make(map[string]*model.StationInfo)
 	// populate ids and parent dirs

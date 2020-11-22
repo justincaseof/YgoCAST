@@ -76,7 +76,7 @@ func TestRootHandler(t *testing.T) {
 	rec := httptest.NewRecorder()
 
 	// setup mock data
-	model_yamaha.YamahaRoot = model_yamaha.RootList(model_yamaha.ListOfItems{
+	root := model_yamaha.RootList(model_yamaha.ListOfItems{
 		ItemCount: -1, // looks like to be some kind of default for root folder
 		Items: []model_yamaha.Item{
 			model_yamaha.Item{
@@ -95,6 +95,7 @@ func TestRootHandler(t *testing.T) {
 			},
 		},
 	})
+	fmt.Println("", root)
 
 	// INVOKE !
 	handler.RootHandler(rec, &http.Request{})

@@ -51,6 +51,7 @@ func parse(name string, target interface{}, unmarshaller Helper) interface{} {
 	// if we os.Open returns an error then handle it
 	if err != nil {
 		fmt.Println(err)
+		panic(fmt.Sprintf("Unknown file: '%s'", name))
 	}
 	// defer the closing of our srcFile so that we can parse it later on
 	defer srcFile.Close()

@@ -56,9 +56,6 @@ type StationsList ListOfItems         // single stations of a directory/genre
 type DirectoryItem Item               // an Item with ItemType=Dir
 type StationItem Item                 // an Item with ItemType=Station
 
-// ### Globally usable vars
-var YamahaRoot RootList
-
 func (myStationDirectories StationDirectoryList) MarshalToXML() []byte {
 	bytes, _ := xml.Marshal(myStationDirectories)
 	return bytes
