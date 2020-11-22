@@ -56,7 +56,11 @@ func parse(name string, target interface{}, unmarshaller Helper) interface{} {
 	// defer the closing of our srcFile so that we can parse it later on
 	defer srcFile.Close()
 	// ##################################################################################
-	byteValue, _ := ioutil.ReadAll(srcFile)
+	byteValue, err2 := ioutil.ReadAll(srcFile)
+	if err2 != nil {
+		fmt.Println(err2)
+		panic(fmt.Sprintf("Cannot parse file: '%s'", name))
+	}
 	unmarshaller.Unmarshal(byteValue, target)
 	return target
 }

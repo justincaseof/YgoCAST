@@ -1,4 +1,11 @@
 my_stations:
+  Info:
+    name: Info
+    stations:
+      - stationname: Deutschlandfunk
+        stationurl: http://st01.dlf.de/dlf/01/128/mp3/stream.mp3
+      - stationname: DLF Nova
+        stationurl: https://st03.sslstream.dlf.de/dlf/03/128/mp3/stream.mp3
   Chillout:
     name: Chillout
     stations:
@@ -10,15 +17,28 @@ my_stations:
         stationurl: http://ice1.somafm.com/dronezone-256-mp3
       - stationname: SomaFM Mission Control
         stationurl: http://ice1.somafm.com/missioncontrol-128-mp3
-  Jungletrains:
-    name: Jungletrains
+  Breaks:
+    name: Breaks
     stations:
-      - stationname: SomaFM DEF CON Radio
-        stationurl: http://ice1.somafm.com/defcon-256-mp3
-      - stationname: SomaFM Drone Zone
-        stationurl: http://ice1.somafm.com/dronezone-256-mp3
-      - stationname: SomaFM Mission Control
-        stationurl: http://ice1.somafm.com/missioncontrol-128-mp3
+      - stationname: Jungletrain#1
+        stationurl: http://stream1.jungletrain.net:8000/
+      - stationname: Jungletrain#2
+        stationurl: http://stream6.jungletrain.net:8000/
+      - stationname: Jungletrain#3
+        stationurl: http://stream5.jungletrain.net:8000/
+      - stationname: Bassdrive#1
+        stationurl: http://stream.bassdrive.uk:8200
+      - stationname: Bassdrive#2
+        stationurl: http://chi.bassdrive.co:80
+      - stationname: Bassdrive#3
+        stationurl: http://ice.bassdrive.net:80/stream
+  PostRockStonerStuff:
+    name: PostRockStonerStuff
+    stations:
+      - stationname: 6fourty
+        stationurl: http://radio.6forty.com:8000/6forty
+      - stationname: 6fourty
+      stationurl: http://radio.6forty.com:8000/6forty
   IntergalacticFM:
     name: IntergalacticFM
     stations:
