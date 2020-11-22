@@ -54,14 +54,14 @@ func TestYamlSerializationAndParsing(t *testing.T) {
 		map[string]model.Subdirectory{
 			"Chill": model.Subdirectory{
 				Name: "Chill",
-				Stations: []model.StationInfo{
+				Stations: []*model.StationInfo{
 					{StationName: "111", StationURL: "222", IconURL: "333"},
 					{StationName: "444", StationURL: "555", IconURL: "666"},
 				},
 			},
 			"Jungletrain*s!": model.Subdirectory{
 				Name: "Jungletrain*s:",
-				Stations: []model.StationInfo{
+				Stations: []*model.StationInfo{
 					{StationName: "123", StationURL: "456", IconURL: "789"},
 					{StationName: "987", StationURL: "654", IconURL: "321"},
 				},

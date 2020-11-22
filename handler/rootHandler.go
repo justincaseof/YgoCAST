@@ -35,7 +35,8 @@ func RootHandler(writer http.ResponseWriter, request *http.Request) {
 		UrlDirBackUp: baseUrl + "radiobrowser/?vtuner=true",
 		DirCount:     1,
 	}))
-	root.ItemCount = int32(len(root.Items))
+	//root.ItemCount = int32(len(root.Items))
+	root.ItemCount = -1 // needs to be -1 (i guess)
 
 	result, err := xml.Marshal(root)
 	if err != nil {
