@@ -38,7 +38,7 @@ my_stations:
       - stationname: 6fourty
         stationurl: http://radio.6forty.com:8000/6forty
       - stationname: 6fourty
-      stationurl: http://radio.6forty.com:8000/6forty
+        stationurl: http://radio.6forty.com:8000/6forty
   IntergalacticFM:
     name: IntergalacticFM
     stations:
