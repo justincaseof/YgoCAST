@@ -56,12 +56,12 @@ func loadStations(fileName string) {
 		for _, sta := range dir.Stations {
 			id := sta.GenerateStationID(dir.Name)
 			if model.STATIONS_BY_ID[id] == nil {
-				fmt.Printf("    * adding station '%s': '%s'\n", id, sta.StationName)
+				fmt.Printf("    * adding station '%s': '%s'\n", id, sta.Name)
 				sta.ParentDirName = dir.Name
 				sta.StationId = id
 				model.STATIONS_BY_ID[id] = sta
 			} else {
-				panic("duplicate station names: " + sta.StationName)
+				panic("duplicate station names: " + sta.Name)
 			}
 		}
 	}

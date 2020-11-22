@@ -102,10 +102,10 @@ func (subDirItem DirectoryItem) Encode(subDir model.Subdirectory, baseUrl string
 func (stationItem StationItem) Encode(station model.StationInfo, baseUrl string) StationItem {
 	stationItem.ItemType = Station
 	stationItem.StationId = station.StationId
-	stationItem.StationName = station.StationName
+	stationItem.StationName = station.Name
 	stationItem.StationFormat = station.ParentDirName
 	stationItem.StationDesc = station.ParentDirName
-	stationItem.StationUrl = station.StationURL
+	stationItem.StationUrl = station.Name
 	if !strings.HasSuffix(baseUrl, "/") {
 		baseUrl = baseUrl + "/"
 	}
