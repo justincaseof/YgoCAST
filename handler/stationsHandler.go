@@ -14,7 +14,6 @@ import (
 func RadiobrowserHandler(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("RadiobrowserHandler")
 
-	//id := middleware.GenerateStationID()
 	dummy := model_yamaha.ListOfItems{
 		ItemCount: 1,
 		Items: []model_yamaha.Item{
@@ -37,16 +36,12 @@ func RadiobrowserHandler(writer http.ResponseWriter, request *http.Request) {
 }
 
 func StationsHandler(writer http.ResponseWriter, request *http.Request) {
-	writer.Header()["Content-Type"] = []string{"text/html; charset=utf-8"}
-
 	fmt.Println("StationsHandler")
 	fmt.Println("  --> MAC: ", request.Context().Value("MAC"))
 
 	directoryName := ""
-	//regex := regexp.MustCompile(`(.)*my_stations/(.*)([/]?\?vtuner)`)
 	regex := regexp.MustCompile(`(.)*my_stations/([^\? /]*)`)
 	if regex.MatchString(request.RequestURI) {
-		//fmt.Println("MATCH ! ")
 		subMatches := regex.FindStringSubmatch(request.RequestURI)
 		directoryName = subMatches[2]
 		fmt.Println("  --> Desired Directory: ", directoryName)
