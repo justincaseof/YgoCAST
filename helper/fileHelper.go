@@ -59,9 +59,13 @@ func parse(name string, target interface{}, unmarshaller Helper) interface{} {
 	byteValue, err2 := ioutil.ReadAll(srcFile)
 	if err2 != nil {
 		fmt.Println(err2)
+		panic(fmt.Sprintf("Cannot read file: '%s'", name))
+	}
+	err3 := unmarshaller.Unmarshal(byteValue, target)
+	if err3 != nil {
+		fmt.Println(err3)
 		panic(fmt.Sprintf("Cannot parse file: '%s'", name))
 	}
-	unmarshaller.Unmarshal(byteValue, target)
 	return target
 }
 
