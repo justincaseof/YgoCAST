@@ -20,14 +20,15 @@ var listenPort string
 // _________
 
 func main() {
-	fmt.Println("#################################")
-	fmt.Println("#             YgoCAST           #")
-	fmt.Println("# ----------------------------- #")
-	fmt.Println("# easy Webradio Index           #")
-	fmt.Println("# for YAMAHA RX-V*** receivers  #")
-	fmt.Println("# @justin.caseof                #")
-	fmt.Println("# 2020-11-22                    #")
-	fmt.Println("#################################")
+	fmt.Println("######################################")
+	fmt.Println("#               YgoCAST              #")
+	fmt.Println("#              ~ 0.0.1 ~             #")
+	fmt.Println("# ---------------------------------- #")
+	fmt.Println("# easy Webradio Index                #")
+	fmt.Println("# for YAMAHA RX-V*** receivers       #")
+	fmt.Println("# github.com/justincaseof/YgoCAST    #")
+	fmt.Println("# 2020-11-22                         #")
+	fmt.Println("######################################")
 
 	flag.StringVar(&stationsFile,
 		"stations",
