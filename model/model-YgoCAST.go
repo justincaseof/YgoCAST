@@ -6,9 +6,9 @@ import (
 )
 
 type StationInfo struct {
-	StationName string
-	StationURL  string
-	IconURL     string `yaml:"iconURL,omitempty"`
+	Name    string
+	URL     string
+	IconURL string `yaml:"iconURL,omitempty"`
 
 	ParentDirName string `yaml:"-"` // internal
 	StationId     string `yaml:"-"` // internal
@@ -32,10 +32,12 @@ func (msd MyStationDirectories) SubDirectoriesAsList() []Subdirectory {
 }
 
 func (si StationInfo) GenerateStationID(subDirName string) string {
-	// FIXME for now, we simply hash the station's name.
-	id := "MY_" + middleware.CalculateStationID(subDirName+"/"+si.StationName)
+	// *** somehow RX-V receivers need the id in a certain format (e.g. MY_41C3D3430E05) ***
+	// FIXME for now, we simply hash the station's name plus it's dir name
+	//       then, we prepend "MY_" and finally cut it to 16 chars.
+	id := "MY_" + middleware.CalculateStationID(subDirName+"/"+si.Name)
 	id = strings.ToUpper(id)
-	id = id[0:15] // FIXME: somehow RX needs the id in a certain format
+	id = id[0:15]
 	return id
 }
 

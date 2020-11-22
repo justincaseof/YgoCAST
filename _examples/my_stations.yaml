@@ -2,95 +2,95 @@ my_stations:
   Info:
     name: Info
     stations:
-      - stationname: Deutschlandfunk
-        stationurl: http://st01.dlf.de/dlf/01/128/mp3/stream.mp3
-      - stationname: DLF nova
-        stationurl: https://dradio-edge-3099-dus-ts-cdn.cast.addradio.de/dradio/nova/live/mp3/128/stream.mp3
-      - stationname: DLF Nova (?)
-        stationurl: https://st03.sslstream.dlf.de/dlf/03/128/mp3/stream.mp3
+      - name: Deutschlandfunk
+        url: http://st01.dlf.de/dlf/01/128/mp3/stream.mp3
+      - name: DLF nova
+        url: https://dradio-edge-3099-dus-ts-cdn.cast.addradio.de/dradio/nova/live/mp3/128/stream.mp3
+      - name: DLF Nova (?)
+        url: https://st03.sslstream.dlf.de/dlf/03/128/mp3/stream.mp3
   Chillout:
     name: Chillout
     stations:
-      - stationname: WEFUNK64 CKUT
-        stationurl: http://s-09.wefunkradio.com:81/wefunk64.mp3
-      - stationname: Joint Radio
-        stationurl: http://radio.jointil.net:9998
-      - stationname: SomaFM DEF CON Radio
-        stationurl: http://ice1.somafm.com/defcon-256-mp3
-      - stationname: SomaFM Drone Zone
-        stationurl: http://ice1.somafm.com/dronezone-256-mp3
-      - stationname: SomaFM Mission Control
-        stationurl: http://ice1.somafm.com/missioncontrol-128-mp3
+      - name: WEFUNK64 CKUT
+        url: http://s-09.wefunkradio.com:81/wefunk64.mp3
+      - name: Joint Radio
+        url: http://radio.jointil.net:9998
+      - name: SomaFM DEF CON Radio
+        url: http://ice1.somafm.com/defcon-256-mp3
+      - name: SomaFM Drone Zone
+        url: http://ice1.somafm.com/dronezone-256-mp3
+      - name: SomaFM Mission Control
+        url: http://ice1.somafm.com/missioncontrol-128-mp3
   Breaks:
     name: Breaks
     stations:
-      - stationname: Jungletrain#1
-        stationurl: http://stream1.jungletrain.net:8000/
-      - stationname: Jungletrain#2
-        stationurl: http://stream6.jungletrain.net:8000/
-      - stationname: Jungletrain#3
-        stationurl: http://stream5.jungletrain.net:8000/
-      - stationname: Bassdrive#1
-        stationurl: http://stream.bassdrive.uk:8200
-      - stationname: Bassdrive#2
-        stationurl: http://chi.bassdrive.co:80
-      - stationname: Bassdrive#3
-        stationurl: http://ice.bassdrive.net:80/stream
+      - name: Jungletrain#1
+        url: http://stream1.jungletrain.net:8000/
+      - name: Jungletrain#2
+        url: http://stream6.jungletrain.net:8000/
+      - name: Jungletrain#3
+        url: http://stream5.jungletrain.net:8000/
+      - name: Bassdrive#1
+        url: http://stream.bassdrive.uk:8200
+      - name: Bassdrive#2
+        url: http://chi.bassdrive.co:80
+      - name: Bassdrive#3
+        url: http://ice.bassdrive.net:80/stream
   PostRockStonerStuff:
     name: PostRockStonerStuff
     stations:
-      - stationname: <Post> 6fourty
-        stationurl: http://radio.6forty.com:8000/6forty
-      - stationname: <DoomMetal> Doomnation
-        stationurl: http://s2.voscast.com:11122/;stream1529099686018/1
-      - stationname: <Post> Downtuner
-        stationurl: http://37.75.236.142:8074/stream
-      - stationname: <Doom> HandOfDoom
-        stationurl: http://158.69.114.190:8042/stream
-      - stationname: <DoomMetalRock> Caprice - Doom Metal
-        stationurl: http://79.111.14.76:8000/doom?type=.mp3
-      - stationname: <StonerRock> Caprice - Stoner Rock
-        stationurl: http://79.111.119.111:8000/stonerrock?type=.mp3
+      - name: <Post> 6fourty
+        url: http://radio.6forty.com:8000/6forty
+      - name: <DoomMetal> Doomnation
+        url: http://s2.voscast.com:11122/;stream1529099686018/1
+      - name: <Post> Downtuner
+        url: http://37.75.236.142:8074/stream
+      - name: <Doom> HandOfDoom
+        url: http://158.69.114.190:8042/stream
+      - name: <DoomMetalRock> Caprice - Doom Metal
+        url: http://79.111.14.76:8000/doom?type=.mp3
+      - name: <StonerRock> Caprice - Stoner Rock
+        url: http://79.111.119.111:8000/stonerrock?type=.mp3
   IntergalacticFM:
     name: IntergalacticFM
     stations:
-      - stationname: Disco Fetish
-        stationurl: http://radio.intergalactic.fm:80/2
-      - stationname: CBS
-        stationurl: http://radio.intergalactic.fm:80/1
-      - stationname: DreamMachine
-        stationurl: http://radio.intergalactic.fm:80/3
+      - name: Disco Fetish
+        url: http://radio.intergalactic.fm:80/2
+      - name: CBS
+        url: http://radio.intergalactic.fm:80/1
+      - name: DreamMachine
+        url: http://radio.intergalactic.fm:80/3
   Electronic:
     name: Electronic
     stations:
-      - stationname: Deep Mix Moscow [RO]
-        stationurl: http://85.122.52.5:8128/stream/1/
-      - stationname: Deep Mix Moscow [RU]
-        stationurl: http://radio.deepmix.ru:7128
-      - stationname: Deep House Lounge
-        stationurl: http://198.15.94.34:8006
-      - stationname: kein.fm
-        stationurl: http://kein.fm:8000/listen
-      - stationname: Ibiza Sonica
-        stationurl: http://s1.sonicabroadcast.com:7005/stream
-      - stationname: Bassdrive
-        stationurl: http://50.7.98.106:8200
-      - stationname: SomaFM Fluid
-        stationurl: http://ice1.somafm.com/fluid-128-mp3
+      - name: Deep Mix Moscow [RO]
+        url: http://85.122.52.5:8128/stream/1/
+      - name: Deep Mix Moscow [RU]
+        url: http://radio.deepmix.ru:7128
+      - name: Deep House Lounge
+        url: http://198.15.94.34:8006
+      - name: kein.fm
+        url: http://kein.fm:8000/listen
+      - name: Ibiza Sonica
+        url: http://s1.sonicabroadcast.com:7005/stream
+      - name: Bassdrive
+        url: http://50.7.98.106:8200
+      - name: SomaFM Fluid
+        url: http://ice1.somafm.com/fluid-128-mp3
   Casual:
     name: Casual
     stations:
-      - stationname: 76Radio
-        stationurl: http://192.240.102.133:9566/stream
-      - stationname: SomaFM Beat Blender
-        stationurl: http://ice1.somafm.com/beatblender-128-mp3
-      - stationname: Jazz Radio Electro Swing
-        stationurl: http://jazz-wr04.ice.infomaniak.ch/jazz-wr04-128.mp3
-      - stationname: SomaFM Groove Salad
-        stationurl: http://ice1.somafm.com/groovesalad-256-mp3
-      - stationname: SomaFM Lush
-        stationurl: http://ice1.somafm.com/lush-128-mp3
-      - stationname: Allzic Radio R&B
-        stationurl: http://allzic10.ice.infomaniak.ch/allzic10.mp3
-      - stationname: The UK 1940s Radio Station
-        stationurl: http://91.121.134.23:8100/1
+      - name: 76Radio
+        url: http://192.240.102.133:9566/stream
+      - name: SomaFM Beat Blender
+        url: http://ice1.somafm.com/beatblender-128-mp3
+      - name: Jazz Radio Electro Swing
+        url: http://jazz-wr04.ice.infomaniak.ch/jazz-wr04-128.mp3
+      - name: SomaFM Groove Salad
+        url: http://ice1.somafm.com/groovesalad-256-mp3
+      - name: SomaFM Lush
+        url: http://ice1.somafm.com/lush-128-mp3
+      - name: Allzic Radio R&B
+        url: http://allzic10.ice.infomaniak.ch/allzic10.mp3
+      - name: The UK 1940s Radio Station
+        url: http://91.121.134.23:8100/1
