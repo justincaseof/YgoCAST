@@ -61,7 +61,7 @@ func loadStations(fileName string) {
 				sta.StationId = id
 				model.STATIONS_BY_ID[id] = sta
 			} else {
-				panic("duplicate station names: " + sta.Name)
+				panic("duplicate station name: " + sta.Name)
 			}
 		}
 	}

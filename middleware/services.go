@@ -11,17 +11,24 @@ import (
 	"time"
 )
 
-func GenerateStationID() string {
+func GenerateRandomStationID() string {
+	// randomize things
+	now := time.Now().UnixNano()
+	waits := now % 5 +1
+	multi := now % 3 +1
+	waitMillis := time.Duration(multi * waits)
+	time.Sleep(waitMillis * time.Millisecond)
+	fmt.Printf("    ( delayed %dms )\n", waitMillis)
 	rand.Seed(time.Now().UnixNano())
+
 	var id uint64 = rand.Uint64()
 	res := fmt.Sprintf("%02x", id)
 	return res
 }
 
-func CalculateStationID(val string) string {
+func GenerateStationIDFromName(val string) string {
 	table := crc64.MakeTable(crc64.ISO)
 	crc := crc64.Checksum([]byte(val), table)
-	//fmt.Printf("CRC64 of '%s': \n\t0x%08x\n", val, crc)
 	return fmt.Sprintf("%08x", crc)
 }
 
