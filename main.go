@@ -13,20 +13,34 @@ import (
 	"ygost/model"
 )
 
+// flag vars
+var stationsFile string
+var listenPort string
+
+// _________
+
 func main() {
-	fmt.Println("Hi!")
+	fmt.Println("#################################")
+	fmt.Println("#             YgoCAST           #")
+	fmt.Println("# ----------------------------- #")
+	fmt.Println("# easy Webradio Index           #")
+	fmt.Println("# for YAMAHA RX-V*** receivers  #")
+	fmt.Println("# @justin.caseof                #")
+	fmt.Println("# 2020-11-22                    #")
+	fmt.Println("#################################")
 
-	loadData()
-	startServer()
-}
-
-func loadData() {
-	stationsFile := flag.String(
+	flag.StringVar(&stationsFile,
 		"stations",
 		"my_stations.yaml",
-		"e.g. -stations my_stations.yaml --> Path of a stations file (defaults to 'stations.yaml')")
+		"e.g. -stations=my_stations.yaml --> Path of a stations file (defaults to 'stations.yaml')")
+	flag.StringVar(&listenPort,
+		"port",
+		"80",
+		"e.g. -port=8087 --> the port for the server to listen on")
 	flag.Parse()
-	loadStations(*stationsFile)
+
+	loadStations(stationsFile)
+	startServer(listenPort)
 }
 
 // our source is a yaml file.
@@ -52,7 +66,7 @@ func loadStations(fileName string) {
 	}
 }
 
-func startServer() {
+func startServer(listenPort string) {
 	// add xml header XML_HEADER = '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>'
 
 	mux := &http.ServeMux{}
@@ -81,7 +95,8 @@ func startServer() {
 	// ... potentially add more middleware handlers
 
 	s := &http.Server{
-		Addr:           ":80",
+		//Addr:           ":80",
+		Addr:           ":" + listenPort,
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
 		MaxHeaderBytes: 1 << 20,
