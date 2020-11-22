@@ -4,7 +4,9 @@ my_stations:
     stations:
       - stationname: Deutschlandfunk
         stationurl: http://st01.dlf.de/dlf/01/128/mp3/stream.mp3
-      - stationname: DLF Nova
+      - stationname: DLF nova
+        stationurl: https://dradio-edge-3099-dus-ts-cdn.cast.addradio.de/dradio/nova/live/mp3/128/stream.mp3
+      - stationname: DLF Nova (?)
         stationurl: https://st03.sslstream.dlf.de/dlf/03/128/mp3/stream.mp3
   Chillout:
     name: Chillout
@@ -75,3 +77,20 @@ my_stations:
         stationurl: http://50.7.98.106:8200
       - stationname: SomaFM Fluid
         stationurl: http://ice1.somafm.com/fluid-128-mp3
+  Casual:
+    name: Casual
+    stations:
+      - stationname: 76Radio
+        stationurl: http://192.240.102.133:9566/stream
+      - stationname: SomaFM Beat Blender
+        stationurl: http://ice1.somafm.com/beatblender-128-mp3
+      - stationname: Jazz Radio Electro Swing
+        stationurl: http://jazz-wr04.ice.infomaniak.ch/jazz-wr04-128.mp3
+      - stationname: SomaFM Groove Salad
+        stationurl: http://ice1.somafm.com/groovesalad-256-mp3
+      - stationname: SomaFM Lush
+        stationurl: http://ice1.somafm.com/lush-128-mp3
+      - stationname: Allzic Radio R&B
+        stationurl: http://allzic10.ice.infomaniak.ch/allzic10.mp3
+      - stationname: The UK 1940s Radio Station
+        stationurl: http://91.121.134.23:8100/1
