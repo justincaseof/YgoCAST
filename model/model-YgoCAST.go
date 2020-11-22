@@ -1,17 +1,22 @@
 package model
 
-import "ygost/middleware"
+import (
+	"strings"
+	"ygost/middleware"
+)
 
 type StationInfo struct {
-	StationName   string
-	StationURL    string
-	IconURL       string `yaml:"iconURL,omitempty"`
-	ParentDirName string `yaml:"-"`
+	StationName string
+	StationURL  string
+	IconURL     string `yaml:"iconURL,omitempty"`
+
+	ParentDirName string `yaml:"-"` // internal
+	StationId     string `yaml:"-"` // internal
 }
 
 type Subdirectory struct {
 	Name     string
-	Stations []StationInfo
+	Stations []*StationInfo
 }
 
 type MyStationDirectories struct {
@@ -26,9 +31,12 @@ func (msd MyStationDirectories) SubDirectoriesAsList() []Subdirectory {
 	return result
 }
 
-func (si *StationInfo) GenerateStationID(subDirName string) string {
+func (si StationInfo) GenerateStationID(subDirName string) string {
 	// FIXME for now, we simply hash the station's name.
-	return "MY_"+middleware.CalculateStationID(subDirName + "/" + si.StationName)
+	id := "MY_" + middleware.CalculateStationID(subDirName+"/"+si.StationName)
+	id = strings.ToUpper(id)
+	id = id[0:15] // FIXME: somehow RX needs the id in a certain format
+	return id
 }
 
 var STATIONS MyStationDirectories

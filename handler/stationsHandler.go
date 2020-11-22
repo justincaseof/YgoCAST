@@ -37,6 +37,8 @@ func RadiobrowserHandler(writer http.ResponseWriter, request *http.Request) {
 }
 
 func StationsHandler(writer http.ResponseWriter, request *http.Request) {
+	writer.Header()["Content-Type"] = []string{"text/html; charset=utf-8"}
+
 	fmt.Println("StationsHandler")
 	fmt.Println("  --> MAC: ", request.Context().Value("MAC"))
 
@@ -80,6 +82,7 @@ func SingleStationById(id string, baseUrl string) model_yamaha.StationsList {
 
 	if stationInfo != nil {
 		station = station.Encode(*stationInfo, baseUrl)
+		fmt.Printf("  --> responding station '%s': '%s'\n", id, station.StationName)
 		result := model_yamaha.StationsList{
 			ItemCount: 1,
 			Items: []model_yamaha.Item{
@@ -88,8 +91,12 @@ func SingleStationById(id string, baseUrl string) model_yamaha.StationsList {
 		}
 		return result
 	}
+
+	fmt.Printf("  --> station '%s' not found\n", id)
 	return model_yamaha.StationsList{
-		ItemCount: 0,
-		Items:     []model_yamaha.Item{},
+		ItemCount: 1,
+		Items: []model_yamaha.Item{
+			model_yamaha.Item{ItemType: model_yamaha.Display, Display: "Station not found :-("},
+		},
 	}
 }

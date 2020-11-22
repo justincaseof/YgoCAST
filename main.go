@@ -34,12 +34,16 @@ func loadStations() {
 
 	model.STATIONS_BY_ID = make(map[string]*model.StationInfo)
 	// populate ids and parent dirs
+	fmt.Printf("Populating stations...\n")
 	for _, dir := range model.STATIONS.SubDirectoriesAsList() {
+		fmt.Printf("  [%s]:\n", dir.Name)
 		for _, sta := range dir.Stations {
 			id := sta.GenerateStationID(dir.Name)
 			if model.STATIONS_BY_ID[id] == nil {
+				fmt.Printf("    * adding station '%s': '%s'\n", id, sta.StationName)
 				sta.ParentDirName = dir.Name
-				model.STATIONS_BY_ID[sta.GenerateStationID(dir.Name)] = &sta
+				sta.StationId = id
+				model.STATIONS_BY_ID[id] = sta
 			} else {
 				panic("duplicate station names: " + sta.StationName)
 			}
@@ -53,13 +57,8 @@ func startServer() {
 	mux := &http.ServeMux{}
 	mux.HandleFunc("/ycast/icon", handler.IconHandler)
 	mux.HandleFunc("/icon", handler.IconHandler)
-
-	//mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/statxml.asp", handler.SetupHandlerStat)
 	mux.Handle("/setupapp/Yamaha/asp/BrowseXML/statxml.asp", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.SetupHandlerStat)))
-
-	//mux.HandleFunc("/setupapp/Yamaha/asp/BrowseXML/loginXML.asp", handler.SetupHandlerLogin)
 	mux.Handle("/setupapp/Yamaha/asp/BrowseXML/loginXML.asp", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.SetupHandlerLogin)))
-
 	mux.Handle("/ycast/my_stations/", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.StationsHandler)))
 	mux.Handle("/ycast/radiobrowser/", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.RadiobrowserHandler)))
 	mux.Handle("/ycast", middleware.XMLEncodingLineAddingWrapper(http.HandlerFunc(handler.RootHandler)))

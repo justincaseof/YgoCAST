@@ -1,0 +1,81 @@
+GOROOT=C:\Go #gosetup
+GOPATH=C:\Users\tobi\go\src\ygost;C:\Users\tobi\go #gosetup
+C:\Go\bin\go.exe build -o C:\Users\tobi\AppData\Local\Temp\___2go_build_main_go.exe -gcflags "all=-N -l" C:\Users\tobi\go\src\ygost\main.go #gosetup
+"C:\Program Files\JetBrains\GoLand 2020.2.3\plugins\go\lib\dlv\windows\dlv.exe" --listen=0.0.0.0:63676 --headless=true --api-version=2 --check-go-version=false --only-same-user=false exec C:\Users\tobi\AppData\Local\Temp\___2go_build_main_go.exe -- #gosetup
+API server listening at: [::]:63676
+Hi!
+CRC64 of 'Electronic/Deep House Lounge':
+	0xb8977c2e470bde5a
+CRC64 of 'Electronic/Deep House Lounge':
+	0xb8977c2e470bde5a
+CRC64 of 'Electronic/Ibiza Sonica':
+	0x5aedbb6ad1e38002
+CRC64 of 'Electronic/Ibiza Sonica':
+	0x5aedbb6ad1e38002
+CRC64 of 'Electronic/Bassdrive':
+	0xa371f014653f1026
+CRC64 of 'Electronic/Bassdrive':
+	0xa371f014653f1026
+CRC64 of 'Electronic/SomaFM Fluid':
+	0x5b21514c799000c0
+CRC64 of 'Electronic/SomaFM Fluid':
+	0x5b21514c799000c0
+CRC64 of 'Chillout/Joint Radio':
+	0x8c7684f44242c08
+CRC64 of 'Chillout/Joint Radio':
+	0x8c7684f44242c08
+CRC64 of 'Chillout/SomaFM DEF CON Radio':
+	0x1fa1898ba03d26e0
+CRC64 of 'Chillout/SomaFM DEF CON Radio':
+	0x1fa1898ba03d26e0
+CRC64 of 'Chillout/SomaFM Drone Zone':
+	0x8a6d18ab73999f66
+CRC64 of 'Chillout/SomaFM Drone Zone':
+	0x8a6d18ab73999f66
+CRC64 of 'Chillout/SomaFM Mission Control':
+	0x25468e0490e50de0
+CRC64 of 'Chillout/SomaFM Mission Control':
+	0x25468e0490e50de0
+CRC64 of 'Jungletrains/SomaFM DEF CON Radio':
+	0x6ea893d990302936
+CRC64 of 'Jungletrains/SomaFM DEF CON Radio':
+	0x6ea893d990302936
+CRC64 of 'Jungletrains/SomaFM Drone Zone':
+	0xc85d15a4a5cd02c1
+CRC64 of 'Jungletrains/SomaFM Drone Zone':
+	0xc85d15a4a5cd02c1
+CRC64 of 'Jungletrains/SomaFM Mission Control':
+	0x2c7c5f0d8ab73ded
+CRC64 of 'Jungletrains/SomaFM Mission Control':
+	0x2c7c5f0d8ab73ded
+CRC64 of 'IntergalacticFM/Disco Fetish':
+	0x8f7fb99df3d46799
+CRC64 of 'IntergalacticFM/Disco Fetish':
+	0x8f7fb99df3d46799
+CRC64 of 'IntergalacticFM/CBS':
+	0x6c01adca8dbc533e
+CRC64 of 'IntergalacticFM/CBS':
+	0x6c01adca8dbc533e
+CRC64 of 'IntergalacticFM/DreamMachine':
+	0xdd079a3ab646276a
+CRC64 of 'IntergalacticFM/DreamMachine':
+	0xdd079a3ab646276a
+  Host: 192.168.178.61:80
+  Header: map[Accept:[*/*] Connection:[close] User-Agent:[AV_Receiver/3.1 (RX-V771)]]
+SetupHandlerLogin
+  --> Sending EncryptedToken
+2020/11/22 13:01:08 GET /setupapp/Yamaha/asp/BrowseXML/loginXML.asp?token=0 (code=200 dt=0s written=49)
+Request for Station ID 'MY_D21037E64327'
+Request from MAC 'e3629f8b2113402738c4d17f406793dc'
+  Host: 192.168.178.61:80
+  Header: map[Accept:[*/*] Connection:[close] User-Agent:[AV_Receiver/3.1 (RX-V771)]]
+SetupHandlerStat
+  --> StationId:  MY_D21037E64327
+Request from MAC 'e3629f8b2113402738c4d17f406793dc'
+  Host: 192.168.178.61:80
+  Header: map[Accept:[*/*] Connection:[close] User-Agent:[AV_Receiver/3.1 (RX-V771)]]
+SetupHandlerLogin
+  --> Redirecting to root.
+RootHandler /setupapp/Yamaha/asp/BrowseXML/loginXML.asp?mac=e3629f8b2113402738c4d17f406793dc&dlang=eng&fver=W&start=1&howmany=8
+2020/11/22 13:01:08 GET /setupapp/Yamaha/asp/BrowseXML/statxml.asp?mac=e3629f8b2113402738c4d17f406793dc&fver=W&id=MY_D21037E64327 (code=200 dt=0s written=107)
+2020/11/22 13:01:08 GET /setupapp/Yamaha/asp/BrowseXML/loginXML.asp?mac=e3629f8b2113402738c4d17f406793dc&dlang=eng&fver=W&start=1&howmany=8 (code=200 dt=1.0057ms written=597)

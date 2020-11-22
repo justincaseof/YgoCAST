@@ -80,14 +80,14 @@ func (myStationDirectories StationDirectoryList) Encode(directories []model.Subd
 	myStationDirectories.ItemCount = int32(len(loi.Items))
 	return myStationDirectories
 }
-func (stationList StationsList) Encode(dirname string, stations []model.StationInfo, baseUrl string) StationsList {
+func (stationList StationsList) Encode(dirname string, stations []*model.StationInfo, baseUrl string) StationsList {
 	los := StationsList{
 		Items: make([]Item, 0),
 	}
 	// Stations
 	for _, station := range stations {
 		station.ParentDirName = dirname
-		los.Items = append(los.Items, Item((&StationItem{}).Encode(station, baseUrl)))
+		los.Items = append(los.Items, Item((&StationItem{}).Encode(*station, baseUrl)))
 	}
 	stationList.Items = los.Items
 	stationList.ItemCount = int32(len(los.Items))
@@ -104,7 +104,7 @@ func (subDirItem DirectoryItem) Encode(subDir model.Subdirectory, baseUrl string
 }
 func (stationItem StationItem) Encode(station model.StationInfo, baseUrl string) StationItem {
 	stationItem.ItemType = Station
-	stationItem.StationId = station.GenerateStationID(station.ParentDirName + "/" + station.StationName)
+	stationItem.StationId = station.StationId
 	stationItem.StationName = station.StationName
 	stationItem.StationFormat = station.ParentDirName
 	stationItem.StationDesc = station.ParentDirName
