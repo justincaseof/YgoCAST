@@ -9,6 +9,8 @@ my_stations:
   Chillout:
     name: Chillout
     stations:
+      - stationname: WEFUNK64 CKUT
+        stationurl: http://s-09.wefunkradio.com:81/wefunk64.mp3
       - stationname: Joint Radio
         stationurl: http://radio.jointil.net:9998
       - stationname: SomaFM DEF CON Radio
@@ -35,10 +37,18 @@ my_stations:
   PostRockStonerStuff:
     name: PostRockStonerStuff
     stations:
-      - stationname: 6fourty
+      - stationname: <Post> 6fourty
         stationurl: http://radio.6forty.com:8000/6forty
-      - stationname: 6fourty
-        stationurl: http://radio.6forty.com:8000/6forty
+      - stationname: <DoomMetal> Doomnation
+        stationurl: http://s2.voscast.com:11122/;stream1529099686018/1
+      - stationname: <Post> Downtuner
+        stationurl: http://37.75.236.142:8074/stream
+      - stationname: <Doom> HandOfDoom
+        stationurl: http://158.69.114.190:8042/stream
+      - stationname: <DoomMetalRock> Caprice - Doom Metal
+        stationurl: http://79.111.14.76:8000/doom?type=.mp3
+      - stationname: <StonerRock> Caprice - Stoner Rock
+        stationurl: http://79.111.119.111:8000/stonerrock?type=.mp3
   IntergalacticFM:
     name: IntergalacticFM
     stations:
@@ -51,8 +61,14 @@ my_stations:
   Electronic:
     name: Electronic
     stations:
+      - stationname: Deep Mix Moscow [RO]
+        stationurl: http://85.122.52.5:8128/stream/1/
+      - stationname: Deep Mix Moscow [RU]
+        stationurl: http://radio.deepmix.ru:7128
       - stationname: Deep House Lounge
         stationurl: http://198.15.94.34:8006
+      - stationname: kein.fm
+        stationurl: http://kein.fm:8000/listen
       - stationname: Ibiza Sonica
         stationurl: http://s1.sonicabroadcast.com:7005/stream
       - stationname: Bassdrive
