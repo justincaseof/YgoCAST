@@ -14,7 +14,6 @@ import (
 func RadiobrowserHandler(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("RadiobrowserHandler")
 
-	//id := middleware.GenerateStationID()
 	dummy := model_yamaha.ListOfItems{
 		ItemCount: 1,
 		Items: []model_yamaha.Item{
@@ -41,10 +40,8 @@ func StationsHandler(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("  --> MAC: ", request.Context().Value("MAC"))
 
 	directoryName := ""
-	//regex := regexp.MustCompile(`(.)*my_stations/(.*)([/]?\?vtuner)`)
 	regex := regexp.MustCompile(`(.)*my_stations/([^\? /]*)`)
 	if regex.MatchString(request.RequestURI) {
-		//fmt.Println("MATCH ! ")
 		subMatches := regex.FindStringSubmatch(request.RequestURI)
 		directoryName = subMatches[2]
 		fmt.Println("  --> Desired Directory: ", directoryName)
@@ -80,6 +77,7 @@ func SingleStationById(id string, baseUrl string) model_yamaha.StationsList {
 
 	if stationInfo != nil {
 		station = station.Encode(*stationInfo, baseUrl)
+		fmt.Printf("  --> responding station '%s': '%s'\n", id, station.StationName)
 		result := model_yamaha.StationsList{
 			ItemCount: 1,
 			Items: []model_yamaha.Item{
@@ -88,8 +86,12 @@ func SingleStationById(id string, baseUrl string) model_yamaha.StationsList {
 		}
 		return result
 	}
+
+	fmt.Printf("  --> station '%s' not found\n", id)
 	return model_yamaha.StationsList{
-		ItemCount: 0,
-		Items:     []model_yamaha.Item{},
+		ItemCount: 1,
+		Items: []model_yamaha.Item{
+			model_yamaha.Item{ItemType: model_yamaha.Display, Display: "Station not found :-("},
+		},
 	}
 }

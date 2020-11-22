@@ -7,6 +7,7 @@ import (
 	"math/rand"
 	"net/http"
 	"regexp"
+	"strings"
 	"time"
 )
 
@@ -20,7 +21,7 @@ func GenerateStationID() string {
 func CalculateStationID(val string) string {
 	table := crc64.MakeTable(crc64.ISO)
 	crc := crc64.Checksum([]byte(val), table)
-	fmt.Printf("CRC64 of '%s': \n\t0x%08x\n", val, crc)
+	//fmt.Printf("CRC64 of '%s': \n\t0x%08x\n", val, crc)
 	return fmt.Sprintf("%08x", crc)
 }
 
@@ -74,7 +75,12 @@ func StationIdMiddleware(next http.Handler) http.Handler {
 
 func XMLEncodingLineAddingWrapper(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>"))
+		if strings.Contains(r.RequestURI, "loginXML.asp?token=0") {
+			// quite hacky way to prevent
+			// ATTENTION: RX-V receiver will REJECT the response if it contains '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>' reamble in response!
+		} else {
+			w.Write([]byte("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>"))
+		}
 
 		// #####
 		// finally, serve the other handlers
