@@ -75,7 +75,7 @@ func StationIdMiddleware(next http.Handler) http.Handler {
 
 func XMLEncodingLineAddingWrapper(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if strings.Contains(r.RequestURI, "loginXML.asp?token=0") {
+		if strings.Contains(r.RequestURI, "loginXML.asp?token=0") { // FIXME: this is actually nasty
 			// quite hacky way to prevent
 			// ATTENTION: RX-V receiver will REJECT the response if it contains '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>' reamble in response!
 		} else {
