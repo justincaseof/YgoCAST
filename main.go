@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/felixge/httpsnoop"
 	"log"
 	"net/http"
 	"time"
@@ -11,6 +10,8 @@ import (
 	"ygost/helper"
 	"ygost/middleware"
 	"ygost/model"
+
+	"github.com/felixge/httpsnoop"
 )
 
 // flag vars
@@ -41,7 +42,9 @@ func main() {
 	flag.Parse()
 
 	loadStations(stationsFile)
+
 	startServer(listenPort)
+
 }
 
 // our source is a yaml file.
@@ -65,6 +68,7 @@ func loadStations(fileName string) {
 			}
 		}
 	}
+	fmt.Printf("Stations loaded successfully.\n")
 }
 
 func startServer(listenPort string) {

@@ -21,6 +21,10 @@ my_stations:
         stationurl: http://ice1.somafm.com/dronezone-256-mp3
       - stationname: SomaFM Mission Control
         stationurl: http://ice1.somafm.com/missioncontrol-128-mp3
+      - stationname: SomaFM Fluid
+        stationurl: http://ice4.somafm.com/fluid-128-mp3
+      - stationname: SomaFM Vaporwaves
+        stationurl: http://ice6.somafm.com/vaporwaves-128-mp3
   Breaks:
     name: Breaks
     stations:
