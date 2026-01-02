@@ -1,0 +1,12 @@
+[Unit]
+Description=YgoCAST
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/YgoCAST_bin/
+ExecStart=/opt/YgoCAST_bin/ygost -stations=/opt/YgoCAST_bin/my_stations.yaml
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
